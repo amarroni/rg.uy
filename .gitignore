@@ -2,6 +2,7 @@
 .htaccess.sample
 .modgit/
 .modman/
+.idea/
 app/etc/applied.patches.list
 app/etc/config.xml
 app/etc/enterprise.xml
