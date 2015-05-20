@@ -28,3 +28,7 @@ pkginfo/
 RELEASE_NOTES.txt
 sitemap.xml
 var/
+.htaccess.preinstall
+LICENSE.html
+LICENSE.txt
+LICENSE_AFL.txt
