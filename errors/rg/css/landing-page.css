@@ -21,6 +21,9 @@ h6 {
     font-family: "Oswald","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #335065;
 }
+a {
+    color:#335065
+}
 .h2, h2 {
     font-size: 20px;
     margin: 0;
