@@ -61,7 +61,11 @@ if (!file_exists($mageFilename)) {
     exit;
 }
 
-if (file_exists($maintenanceFile)) {
+//if (file_exists($maintenanceFile)) {
+$filter = array("127.0.0.1","186.48.53.82","200.40.138.131","201.217.156.26","190.132.108.50","186.55.54.202");
+$clientIp = $_SERVER['REMOTE_ADDR'];
+
+if (file_exists($maintenanceFile) && !in_array($clientIp, $filter)) {
     include_once dirname(__FILE__) . '/errors/503.php';
     exit;
 }
