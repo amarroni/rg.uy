@@ -1,8 +1,6 @@
 <?php
-/**
- * @deprecated Replaced by Infortis_Ultimo_Model_System_Config_Source_Header_Position_PrimaryMenuContainer
- */
-class Infortis_Ultimo_Model_System_Config_Source_Header_Position_PrimaryMenu
+
+class Infortis_Ultimo_Model_System_Config_Source_Header_Position_PrimaryMenuContainer
 {
     public function toOptionArray()
     {

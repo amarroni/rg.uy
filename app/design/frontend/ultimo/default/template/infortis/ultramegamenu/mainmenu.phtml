@@ -16,11 +16,60 @@
 		
 		$categories = $helper->getCfg('general/categories');
 		$linksHtml = $this->getChildHtml('block_nav_links');
+
+		//Get blocks that can be displayed inside the menu bar
+		//--------------------------------------------------------------
+		$theme = Mage::helper('ultimo');
+
+		//Mini cart
+		$cartHtml = '';
+		if ($theme->getCfg('header/cart_position') === 'mainMenu')
+		{
+			$cartHtml = $this->getChildHtml('cart_sidebar');
+			if ($cartHtml)
+			{
+				//Set flag which indicates that mini cart exists and is displayed
+				if (Mage::registry('headerDisplayMiniCart') === NULL)
+				{
+					Mage::register('headerDisplayMiniCart', true);
+				}
+			}
+		}
+
+		//Mini compare
+		$compareHtml = '';
+		if ($theme->getCfg('header/compare_position') === 'mainMenu' && $theme->getCfg('header/compare'))
+		{
+			$compareHtml = $this->getChildHtml('compareMini');
+			if ($compareHtml)
+			{
+				//Set flag which indicates that mini compare exists and is displayed
+				if (Mage::registry('headerDisplayMiniCompare') === NULL)
+				{
+					Mage::register('headerDisplayMiniCompare', true);
+				}
+			}
+		}
+
+		//Search box
+		$searchHtml = '';
+		if ($theme->getCfg('header/search_position') === 'mainMenu')
+		{
+			$searchHtml = $this->getChildHtml('search_wrapper');
+			if ($searchHtml)
+			{
+				//Set flag which indicates that search box exists and is displayed
+				if (Mage::registry('headerDisplaySearch') === NULL)
+				{
+					Mage::register('headerDisplaySearch', true);
+				}
+			}
+		}
 	?>
 
 
 
-	<?php //Mobile menu trigger %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ?>
+	<?php //Mobile menu trigger ************************************************************** ?>
 
 	<?php if ($mode <= 0): //Mode: mobile or both ?>
 
@@ -35,12 +84,13 @@
 
 
 
-	<?php //Menu %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ?>
+	<?php //Menu ************************************************************** ?>
 
 	<ul id="nav" class="nav-regular opt-fx-fade-inout <?php if ($helper->getCfg('mainmenu/centered')) echo 'centered '; echo $helper->getBlocksVisibilityClassOnMobile(); ?>">
 
-		<li id="nav-holder1" class="nav-item level0 level-top nav-holder"></li>
-		<li id="nav-holder2" class="nav-item level0 level-top nav-holder"></li>
+		<li id="nav-holder1" class="nav-item level0 level-top nav-holder"><?php echo $cartHtml; ?></li>
+		<li id="nav-holder2" class="nav-item level0 level-top nav-holder"><?php echo $compareHtml; ?></li>
+		<li id="nav-holder3" class="nav-item level0 level-top nav-holder"><?php echo $searchHtml; ?></li>
 	
 		<?php //Home link
 			$isHomeLink = FALSE;
@@ -119,7 +169,7 @@
 
 
 
-	<?php //Scripts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ?>
+	<?php //Scripts ************************************************************** ?>
 
 	<script type="text/javascript">
 	//<![CDATA[

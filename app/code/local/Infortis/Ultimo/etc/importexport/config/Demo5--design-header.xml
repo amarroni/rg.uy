@@ -1,4 +1,56 @@
 <defaul>
+   <ultimo>
+      <header>
+         <left_column>4</left_column>
+         <central_column>4</central_column>
+         <right_column>4</right_column>
+         <logo_position>primLeftCol</logo_position>
+         <search_position>primCentralCol</search_position>
+         <search_in_user_menu_position>1</search_in_user_menu_position>
+         <user_menu_position>primRightCol</user_menu_position>
+         <toplinks_break_position>0</toplinks_break_position>
+         <signup>0</signup>
+         <main_menu_position>menuContainer</main_menu_position>
+         <cart_position>userMenu</cart_position>
+         <cart_label>0</cart_label>
+         <compare>1</compare>
+         <compare_position>userMenu</compare_position>
+         <compare_label>0</compare_label>
+         <sticky>1</sticky>
+         <sticky_full_width>0</sticky_full_width>
+         <mode>1</mode>
+         <mobile_move_switchers>0</mobile_move_switchers>
+      </header>
+      <product_page>
+         <image_column>4</image_column>
+         <primary_column>5</primary_column>
+         <secondary_column>3</secondary_column>
+         <lower_primary_column>9</lower_primary_column>
+         <lower_secondary_column>3</lower_secondary_column>
+         <container2_column>9</container2_column>
+         <tabs>1</tabs>
+         <tabs_mode>1</tabs_mode>
+         <tabs_threshold>1024</tabs_threshold>
+         <tabs_collapsed>1</tabs_collapsed>
+         <tabs_style>0</tabs_style>
+         <collateral_position>lowerPrimCol_1</collateral_position>
+         <collateral_reviews>1</collateral_reviews>
+         <collateral_tags>1</collateral_tags>
+         <collateral_related>0</collateral_related>
+         <collateral_upsell>0</collateral_upsell>
+         <related_position>secCol_3</related_position>
+         <related_template>catalog/product/list/related_tabbed.phtml</related_template>
+         <related_count>3</related_count>
+         <related_breakpoints>[0, 1], [320, 2], [480, 3], [768, 1]</related_breakpoints>
+         <related_timeout>6000</related_timeout>
+         <replace_related>2</replace_related>
+         <upsell_position>lowerPrimCol_2</upsell_position>
+         <upsell_breakpoints>[0, 1], [320, 2], [480, 3], [960, 4]</upsell_breakpoints>
+         <upsell_timeout/>
+         <replace_upsell>2</replace_upsell>
+         <sku>0</sku>
+      </product_page>
+   </ultimo>
    <ultimo_design>
       <colors>
          <color>#333333</color>

@@ -166,16 +166,20 @@
 .inner-container:after { display: table; line-height: 0; content: ""; }
 .inner-container:after { clear: both; }
 
-/* Stretched container.
-   If container is stretched, remove side padding from inner container.
+/* Full width container
 -------------------------------------------------------------- */
-.container.stretched > .inner-container {
+.container.full-width {
+	width: 100%;
+	max-width: none;
+}
+
+/* Expanded container (without inner side padding)
+-------------------------------------------------------------- */
+.container.no-side-padding > .inner-container
+{
 	padding-left: 0;
 	padding-right: 0;
 }
-
-/* Deprecated, for backward compatibility: */
-.container.stretched > .grid-full { width:100%; margin-left:0; margin-right:0; }
 
 
 /* Grid units containers

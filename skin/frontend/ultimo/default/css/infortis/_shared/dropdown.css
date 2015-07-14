@@ -16,6 +16,8 @@
 .dropdown .dropdown-heading {
 	display:inline-block;
 	cursor:default;
+	line-height:36px;
+	max-height:36px;  /* Set static height to improve layout of inline elements */
 }
 
 /* In case a link ("a" tag) is used as a dropdown heading, inherit color from parent element */

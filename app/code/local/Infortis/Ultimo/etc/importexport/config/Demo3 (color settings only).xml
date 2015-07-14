@@ -79,6 +79,7 @@
          <search_hover_color>#716861</search_hover_color>
          <search_border_color>transparent</search_border_color>
          <search_border_hover_color>transparent</search_border_hover_color>
+         <search_max_width>300px</search_max_width>
          <dropdown_bg_color>#ffffff</dropdown_bg_color>
          <dropdown_color>#333333</dropdown_color>
          <dropdown_link_color>#333333</dropdown_link_color>
@@ -179,7 +180,7 @@
          <acco_bg_color>#f5f5f5</acco_bg_color>
          <acco_color>#333333</acco_color>
          <acco_active_bg_color>#d52462</acco_active_bg_color>
-         <acco_active_color>#fff</acco_active_color>
+         <acco_active_color>#ffffff</acco_active_color>
       </product_page>
       <slideshow>
          <tool_icon_bg_color>#ffffff</tool_icon_bg_color>

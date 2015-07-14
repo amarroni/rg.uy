@@ -79,6 +79,7 @@
          <search_hover_color>#333333</search_hover_color>
          <search_border_color>transparent</search_border_color>
          <search_border_hover_color>transparent</search_border_hover_color>
+         <search_max_width/>
          <dropdown_bg_color>#ffffff</dropdown_bg_color>
          <dropdown_color>#333333</dropdown_color>
          <dropdown_link_color>#333333</dropdown_link_color>

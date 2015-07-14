@@ -61,9 +61,8 @@
 /* Vertical links %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
-.links > li,
-.links > li > a { line-height:3em; } /* line-height:36px; */ /*2.6666em = 32px;*/
-.links > li > a { padding:0 0.5833em; } /* padding:0 7px; */
+.links > li { line-height:36px; }
+.links > li > a { padding:0 0.5833em; } /* 0px 7px */
 .links > li.label { padding-right:0.5833em; } /* 7px */
 
 /* Basic links, no separators

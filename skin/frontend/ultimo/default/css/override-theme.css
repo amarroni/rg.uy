@@ -19,11 +19,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 .wrapper { border-top-style:solid; border-top-width:5px; }
-.main { padding:30px 0 40px; }
-/* Additional margin for main sidebars
+
+/* Additional margin for sidebars
 -------------------------------------------------------------- */
-.col-left > * { margin-right: 32px; }
-.col-right > * { margin-left: 32px; }
+.col-left > *,
+.col-left .widget-static-block { margin-right: 32px; }
+.col-right > *,
+.col-right .widget-static-block { margin-left: 32px; }
 
 
 
@@ -151,7 +153,7 @@
 .header-regular .mini-compare-heading .label.no-display { display: none; }
 
 
-/* Vertically aligned grid (in "Header Primary" section)
+/* Vertically aligned grid (in "Header - Primary" section)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
 .header-regular .hp-blocks-holder {
@@ -259,6 +261,12 @@
 .header-regular .right-column .user-menu .mini-compare,
 .header-regular .right-column .user-menu .top-links,
 .header-regular .right-column .user-menu .top-links ul {
+	float: right;
+}
+
+/* Main menu
+-------------------------------------------------------------- */
+.header-regular .right-column .nav-container {
 	float: right;
 }
 
@@ -487,6 +495,37 @@
 }
 
 
+/* Vertically aligned grid (in "Header - Primary" section).
+   In mobile header all grid units are stretched to full width
+   and stack vertically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.header-mobile .hp-blocks-holder .hp-block {
+	width: 100%; /* TODO: add "!important" to override units with "no-gutter"? */
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* TODO: test */
+@media only screen and (max-width: 960px) {
+	/* If special class exists, 
+	   reset blocks below this breakpoint - blocks become full width and stack vertically. */
+	.header-regular .hp-blocks-holder--with-menu .hp-block {
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	/* Remove floating of the menu container */
+	.header-regular .hp-blocks-holder--with-menu .nav-container {
+		float: none;
+	}
+	.header-regular .hp-blocks-holder--with-menu .right-column {
+		text-align: inherit;
+	}
+}
+
+
 /* Top links
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
@@ -497,8 +536,14 @@
 /* Generic vertical inline links
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
-.header-mobile .skip-content .links > li { float: none; }
-.header-mobile .skip-content .links > li > a { background-image: none; /* Remove link separators */ }
+.header-mobile .skip-content .links > li {
+	float: none;
+	line-height: 44px;
+	font-size: 16px;
+}
+.header-mobile .skip-content .links > li > a {
+	background-image: none; /* Remove link separators */
+}
 
 
 /* Logo and collateral elements
@@ -565,11 +610,19 @@
 .header-mobile .mobnav-trigger-wrapper { display: none !important; } /* Always hidden */
 .header-mobile .nav-mobile { display: block !important; } /* Always displayed */
 
-/* Remove side padding from inner container when menu container has "simple" class TODO:check */
+/* Remove side padding from inner container when menu container has "simple" class */
 .header-mobile .nav.simple .inner-container {
 	padding-left: 0;
 	padding-right: 0;
 }
+
+/* Primary header - in mobile header mode remove bottom padding, because it would create a gap between skip links and content */
+.header-mobile .header-primary {
+	padding-bottom: 0;
+}
+
+/* Menu container */
+.header-mobile .nav {}
 
 /* Container
 -------------------------------------------------------------- */
@@ -605,21 +658,6 @@
 }
 
 
-/* Additional overrides for mobile header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
-/* If inner container has a background color, it gets additional class "has-outline".
-   Remove the background color and shadow. */
-.header-mobile .nav.has-outline {
-	background-color: transparent;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
-.header-mobile .nav.has-outline > .inner-container {}
-.header-mobile .nav.stretched > .inner-container {}
-
-
 /* Hidden elements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
@@ -634,7 +672,7 @@
 /* Sticky header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
-.sticky-header .sticky-container { /* .sticky-header .nav-container */
+.sticky-header .sticky-container {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -651,21 +689,14 @@
 	padding-top: 0;
 	padding-bottom: 0;
 }
-/* Remove inner background color (outline of the menu bar) */
+/* Remove background color and vertical padding (they work as an outline of the menu bar) from the nav container */
 .sticky-header .nav-container .nav {
 	background-color: transparent;
-}
-/* Remove vertical padding from the inner container when inner container has a background color (outline) */
-.sticky-header .nav-container .nav > .inner-container {
 	padding-top: 0;
 	padding-bottom: 0;	
 }
-.sticky-header .nav-container #nav { /* Deprecated. For backward compatibility. Menu has no margin in current version. */
-	margin-top: 0;
-	margin-bottom: 0;
-}
 
-/* Remove shadow of menu bar container, also if menu bar itself has shadow */
+/* Remove shadow from the menu bar and from the menu bar container */
 .sticky-header .nav-container .nav,
 .sticky-header .nav-container #nav {
 	-moz-box-shadow: none !important;
@@ -702,7 +733,7 @@
 
 /* Hide selected elements
 -------------------------------------------------------------- */
-/* Label of the dropdown in sticky header */
+/* Text label of the dropdown when inside sticky header */
 .sticky-header .nav-holder .dropdown-heading .label {
 	display: none;
 }
@@ -830,16 +861,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
 /*.my-account .pager { margin: -1px 0 20px; }*/
-
-
-
-/* Footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-
-/* Footer primary
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
-.footer-primary .section { padding-top: 20px; padding-bottom: 20px; }
 
 
 
@@ -989,52 +1010,14 @@
 /* Other modifications %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
-/* Menu container:
-   with outline (if menu has inner background color)
-   or without outline (if menu is stretched)
+/* Menu container
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
-
-/* With outline
--------------------------------------------------------------- */
-/* Add padding, the same value as for side padding of all page sections.
-   Padding is added via admin. Default value is for fallback in case side padding was set to zero.
-   Important: use the same value as for side padding of all page sections to keep consistent padding.
-*/
-.nav.has-outline > .inner-container {
-	/*padding: 15px;*/
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-/* Trigger has no bottom margin */
-.nav.has-outline .mobnav-trigger {
-	margin-bottom: 0;
-}
-
-/* Without outline
--------------------------------------------------------------- */
-/* If menu container stretched, remove top and bottom padding
-   Important: added class "container" to make the rule more specific. */
-.container.nav.stretched > .inner-container {
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-/* Deprecated, for backward compatibility: */
-.nav.has-outline > .grid-full { margin-top: 1%; margin-bottom: 1%; } /* With outline */
-.container.nav.stretched > .grid-full { margin-top: 0; margin-bottom: 0; } /* Without outline */
-
-/* Simple menu container - when container is not full-width but is narrow and placed in one of the header sections.
-   Override the width of the "container" class.
--------------------------------------------------------------- */
+/* Simple menu container - when menu is inside the container which is not full-width but is narrow
+   and placed in one of the header sections. Override the width of the "nav" class. */
 .nav.simple {
 	width: 100%;
 }
-/*
-.nav.simple:not(.has-outline) .inner-container {
-	padding-left: 0;
-	padding-right: 0;
-}*/
 
 
 /* Cart
