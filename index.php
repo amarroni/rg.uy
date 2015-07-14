@@ -35,11 +35,6 @@ Whoops, it looks like you have an invalid PHP version.</h3></div><p>Magento supp
 }
 
 /**
- * Error reporting
- */
-error_reporting(E_ALL | E_STRICT);
-
-/**
  * Compilation includes configuration file
  */
 define('MAGENTO_ROOT', getcwd());
@@ -61,24 +56,21 @@ if (!file_exists($mageFilename)) {
     exit;
 }
 
-//if (file_exists($maintenanceFile)) {
-$filter = array("127.0.0.1","186.48.53.82","200.40.138.131","201.217.156.26","190.132.108.50","186.55.54.202");
-$clientIp = $_SERVER['REMOTE_ADDR'];
-
-if (file_exists($maintenanceFile) && !in_array($clientIp, $filter)) {
+if (file_exists($maintenanceFile)) {
     include_once dirname(__FILE__) . '/errors/503.php';
     exit;
 }
 
+require MAGENTO_ROOT . '/app/bootstrap.php';
 require_once $mageFilename;
 
 #Varien_Profiler::enable();
 
-if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
+//if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
     Mage::setIsDeveloperMode(true);
-}
+//}
 
-#ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 umask(0);
 

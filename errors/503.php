@@ -28,4 +28,3 @@ require_once 'processor.php';
 
 $processor = new Error_Processor();
 $processor->process503();
-$processor->pageTitle = "RG - BORN TO BE KEEPER";
