@@ -33,6 +33,6 @@ var/
 LICENSE.html
 LICENSE.txt
 LICENSE_AFL.txt
-
+downloader/*
 maintenance.flag
 media
