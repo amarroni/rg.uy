@@ -42,3 +42,100 @@
 	margin: 0;
 	max-width: 100%;
 }
+
+/*Menu*/
+#nav{
+	margin-top:26px;
+}
+.nav-regular .classic > .nav-panel--dropdown {
+	padding: 10px 20px 0;
+}
+.nav-regular .nav-panel li.classic{
+	padding-bottom: 10px;
+}
+
+.ic-cart::before, .ic-cart1::before{
+	content: "";
+}
+.ic-cart, .ic-cart1{
+	background: url("../images/icon_cart.png") 0 0 no-repeat;
+	height: 26px;
+	width: 33px;
+}
+#mini-cart .caret{
+	border: none;
+	position:relative;
+	height:20px;/*height should be double border*/
+	top: 8px;
+}
+#mini-cart .caret:before,
+#mini-cart .caret:after{
+	position:absolute;
+	display:block;
+	content:"";
+	border:7px solid transparent;/*adjust size*/
+}
+/*Change four 'top' values below to rotate (top/right/bottom/left)*/
+#mini-cart .caret:before{
+	top:0;
+	border-top-color:#222;
+}
+#mini-cart .caret:after{
+	top:-2px;/*adjust thickness*/
+	border-top-color:#fff;/*Match background colour*/
+}
+#mini-cart.dropdown .caret{
+	opacity: 0.6;
+}
+#mini-cart.dropdown .dropdown-heading.cover > span, #mini-cart.dropdown .dropdown-heading.cover > div{
+	padding: 0 24px 0 10px;
+}
+#mini-cart.dropdown .dropdown-heading.cover > span:hover .caret{
+	opacity: 1;
+}
+.header-regular .right-column .user-menu .search-wrapper{
+	width: 237px;
+}
+
+/* Slideshow */
+.pagination-pos-over-bottom-centered .owl-pagination{
+	margin-top: -65px;
+}
+.the-slideshow .owl-controls.clickable .owl-buttons div,
+.the-slideshow .owl-controls.clickable .owl-buttons div:hover{
+	background: none;
+}
+.slider-arrows2 .owl-controls .owl-buttons div{
+	font-size: 50px;
+}
+.slider-arrows2 .owl-controls .owl-buttons .owl-next{
+	right: 2%;
+}
+.slider-arrows2 .owl-controls .owl-buttons .owl-prev{
+	left:2%;
+}
+.owl-carousel .owl-wrapper .owl-item .item.slide{
+	background: #000;
+	text-align: center;
+}
+.owl-carousel .owl-wrapper .owl-item .item.slide a,
+.owl-carousel .owl-wrapper .owl-item .item.slide a:hover{
+	color: #fff;
+}
+.caption{
+	bottom: auto;
+	left: 50%;
+	margin: 0;
+	top: 50%;
+	width: auto;
+}
+.caption.light1 .heading,
+.caption.light1 p,
+a:hover .caption.light1 .heading,
+a:hover .caption.light1 p{
+	background: none;
+	color:#fff;
+}
+.caption.centered > *{
+	display: block;
+}
