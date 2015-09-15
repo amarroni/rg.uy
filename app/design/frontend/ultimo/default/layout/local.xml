@@ -207,7 +207,7 @@
 				<action method="insert">
 					<block>top.search</block>
 				</action>
-				
+
 			</block>
 		
 			<!-- Mini cart -->
