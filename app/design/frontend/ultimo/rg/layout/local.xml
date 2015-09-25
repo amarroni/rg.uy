@@ -322,6 +322,9 @@
 					
 			<!-- Remove checkout links -->
 			<remove name="checkout_cart_link" />
+
+			<!-- Remove wishlist link -->
+			<remove name="wishlist_link" />
 			
 		</reference>
 		
@@ -387,6 +390,9 @@
 			
 			<block type="cms/block" name="block_footer_contact">
 				<action method="setBlockId"><block_id>block_footer_contact</block_id></action>
+			</block>
+			<block type="cms/block" name="block_footer_social">
+				<action method="setBlockId"><block_id>block_footer_social</block_id></action>
 			</block>
 			<block type="cms/block" name="block_footer_bottom">
 				<action method="setBlockId"><block_id>block_footer_bottom</block_id></action>
