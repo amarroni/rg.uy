@@ -14,6 +14,10 @@
 	//Important: this block has to be rendered at the very beginning of this file
 	$userMenuHtml = $this->getChildHtml('user_menu');
 
+	//Main menu
+	//Important: this block has to be rendered at the very beginning of this file
+	$menuHtml = $this->getChildHtml('topMenu');
+
 	//Switchers
 	$currencySwitcher = $this->getChildHtml('currency');
 	$languageSwitcher = $this->getChildHtml('store_language');
@@ -62,34 +66,12 @@
 	//Get flags indicating if blocks are displayed directly inside the header block template or inside one of the child blocks
 	$display = $helperThis->getDisplayedInHeaderBlock();
 
-	//Design settings
+	//Additional classes
 	//**************************************************************
-	$headerInnerBgColor     = $theme->getCfgDesign('header/inner_bg_color');
-	$headerTopInnerBgColor	= $theme->getCfgDesign('header_top/inner_bg_color');
-	$headerTopStretched		= $theme->getCfgDesign('header_top/stretched');
-	$headerPrimaryStretched	= $theme->getCfgDesign('header_primary/stretched');
-	$navInnerBgColor        = $theme->getCfgDesign('nav/inner_bg_color');
-	$navStretched           = $theme->getCfgDesign('nav/stretched');
-	$navDropShadow          = $theme->getCfgDesign('effects/shadow_nav');
-
 	//Header
 	$classes['root'] = '';
 	if ($moveSwitchers)
 		$classes['root'] .= ' move-switchers';
-
-	//Header top
-	$classes['top'] = '';
-	if ($theme->isColor($headerInnerBgColor) || $theme->isColor($headerTopInnerBgColor))
-		$classes['top'] .= ' show-bg';
-	if ($headerTopStretched)
-		$classes['top'] .= ' stretched';
-
-	//Header primary
-	$classes['primary'] = '';
-	if ($theme->isColor($headerInnerBgColor))
-		$classes['primary'] .= ' show-bg';
-	if ($headerPrimaryStretched)
-		$classes['primary'] .= ' stretched';
 	
 	//Menu
 	$classes['nav-container'] = '';
@@ -97,20 +79,12 @@
 		$classes['nav-container'] .= ' sticky-container--full-width';
 
 	$classes['nav'] = '';
-	if ($theme->isColor($navInnerBgColor)) //If menu has inner background color, add class indicating that it can have an outline
-		$classes['nav'] .= ' has-outline';
-	if ($navDropShadow === 'inner-container')
-		$classes['nav'] .= ' show-bg';
-	elseif ($navDropShadow === 'bar')
-		$classes['nav'] .= ' nav--bar-drop-shadow';
-	if ($navStretched)
-		$classes['nav'] .= ' stretched';
 	if ($menuDisplayedInFullWidthContainer === FALSE)
 		$classes['nav'] .= ' simple';
 
 	//Assign blocks to selected positions
 	//**************************************************************
-	$p = array();
+	$html = array();
 
 	//Mini cart
 	//--------------------------------------------------------------
@@ -121,7 +95,7 @@
 		$cartHtml = $this->getChildHtml('cart_sidebar');
 		if ($cartHtml)
 		{
-			$p[$position['cart']][] = $cartHtml;
+			$html[$position['cart']][] = $cartHtml;
 		}
 	}
 
@@ -134,13 +108,13 @@
 		$compareHtml = $this->getChildHtml('compareMini');
 		if ($compareHtml)
 		{
-			$p[$position['compare']][] = $compareHtml;
+			$html[$position['compare']][] = $compareHtml;
 		}
 	}
 
 	//Logo
 	//--------------------------------------------------------------
-	$p[$position['logo']][] = $logoHtml;
+	$html[$position['logo']][] = $logoHtml;
 
 	//Search
 	//--------------------------------------------------------------
@@ -151,13 +125,13 @@
 		$searchHtml = $this->getChildHtml('search_wrapper');
 		if ($searchHtml)
 		{
-			$p[$position['search']][] = $searchHtml;
+			$html[$position['search']][] = $searchHtml;
 		}
 	}
 
 	//User menu
 	//--------------------------------------------------------------
-	$p[$position['user-menu']][] = $userMenuHtml;
+	$html[$position['user-menu']][] = $userMenuHtml;
 
 	//User menu can contain account links (including Top Links).
 	//Get flag which indicates that block with account links exists and is displayed.
@@ -165,16 +139,16 @@
 
 	//Main menu
 	//--------------------------------------------------------------
-	$menuHtml = '
+	$menuContainerHtml = '
 	<div id="header-nav" class="nav-container skip-content sticky-container' . ($classes['nav-container'] ? $classes['nav-container'] : '') . '">
 		<div class="nav container clearer' . ($classes['nav'] ? $classes['nav'] : '') . '">
-			<div class="inner-container">' . $this->getChildHtml('topMenu') . '</div> <!-- end: inner-container -->
+			<div class="inner-container">' . $menuHtml . '</div> <!-- end: inner-container -->
 		</div> <!-- end: nav -->
 	</div> <!-- end: nav-container -->';
 
 	if ($menuDisplayedInFullWidthContainer === FALSE)
 	{
-		$p[$position['main-menu']][] = $menuHtml;
+		$html[$position['main-menu']][] = $menuContainerHtml;
 	}
 
 	//Skip links and blocks displayed via skip links
@@ -206,8 +180,8 @@
 		$skipLinksCount++;
 	}
 
-	//Menu
-	if (!empty($menuHtml)) 
+	//Main menu
+	if (!empty($menuContainerHtml)) 
 	{
 		$skipLinksCount++;
 	}
@@ -217,13 +191,13 @@
 <div class="header-container3">
 
 	<div class="header-top-container">
-		<div class="header-top header container clearer<?php if ($classes['top']) echo $classes['top']; ?>">
+		<div class="header-top header container clearer">
 			<div class="inner-container">
 
 				<div class="left-column">
 
-					<?php if (isset($p['topLeft_1'])): ?>
-						<?php foreach ($p['topLeft_1'] as $element): ?>
+					<?php if (isset($html['topLeft_1'])): ?>
+						<?php foreach ($html['topLeft_1'] as $element): ?>
 							<div class="item item-left"><?php echo $element; ?></div>
 						<?php endforeach; ?>
 					<?php endif; ?>
@@ -244,8 +218,8 @@
 
 				<div class="right-column">
 
-					<?php if (isset($p['topRight_1'])): ?>
-						<?php foreach ($p['topRight_1'] as $element): ?>
+					<?php if (isset($html['topRight_1'])): ?>
+						<?php foreach ($html['topRight_1'] as $element): ?>
 							<div class="item item-right"><?php echo $element; ?></div>
 						<?php endforeach; ?>
 					<?php endif; ?>
@@ -268,7 +242,7 @@
 	</div> <!-- end: header-top-container -->
 
 	<div class="header-primary-container">
-		<div class="header-primary header container<?php if ($classes['primary']) echo $classes['primary']; ?>">
+		<div class="header-primary header container">
 			<div class="inner-container">
 
 				<?php echo $this->getChildHtml('topContainer'); ?>
@@ -297,7 +271,7 @@
 
 					<!-- Skip links -->
 
-					<?php if (!empty($menuHtml)): ?>
+					<?php if (!empty($menuContainerHtml)): ?>
 						<a href="#header-nav" class="skip-link skip-nav">
 							<span class="icon ic ic-menu"></span>
 							<span class="label"><?php echo $this->__('Menu'); ?></span>
@@ -355,8 +329,8 @@
 						<!-- Left column -->
 						<div class="hp-block left-column <?php echo $grid['primLeftCol']; ?>">
 							<?php echo $this->getChildHtml('container_header_primary_left_1'); ?>
-							<?php if (isset($p['primLeftCol'])): ?>
-								<?php foreach ($p['primLeftCol'] as $element): ?>
+							<?php if (isset($html['primLeftCol'])): ?>
+								<?php foreach ($html['primLeftCol'] as $element): ?>
 									<div class="item"><?php echo $element; ?></div>
 								<?php endforeach; ?>
 							<?php endif; ?>
@@ -367,8 +341,8 @@
 						<!-- Central column -->
 						<div class="hp-block central-column <?php echo $grid['primCentralCol']; ?>">
 							<?php echo $this->getChildHtml('container_header_primary_central_1'); ?>
-							<?php if (isset($p['primCentralCol'])): ?>
-								<?php foreach ($p['primCentralCol'] as $element): ?>
+							<?php if (isset($html['primCentralCol'])): ?>
+								<?php foreach ($html['primCentralCol'] as $element): ?>
 									<div class="item"><?php echo $element; ?></div>
 								<?php endforeach; ?>
 							<?php endif; ?>
@@ -379,8 +353,8 @@
 						<!-- Right column -->
 						<div class="hp-block right-column <?php echo $grid['primRightCol']; ?>">
 							<?php echo $this->getChildHtml('container_header_primary_right_1'); ?>
-							<?php if (isset($p['primRightCol'])): ?>
-								<?php foreach ($p['primRightCol'] as $element): ?>
+							<?php if (isset($html['primRightCol'])): ?>
+								<?php foreach ($html['primRightCol'] as $element): ?>
 									<div class="item"><?php echo $element; ?></div>
 								<?php endforeach; ?>
 							<?php endif; ?>
@@ -394,7 +368,7 @@
 	</div> <!-- end: header-primary-container -->
 
 	<?php if ($menuDisplayedInFullWidthContainer): ?>
-		<?php echo $menuHtml; ?>
+		<?php echo $menuContainerHtml; ?>
 	<?php endif; ?>
 
 </div> <!-- end: header-container3 -->
@@ -698,21 +672,32 @@
 					//Move elements to sticky header
 					$(document).on('sticky-header-before-activated', function(e, data) {
 
-						jQuery('#nav-holder1').prepend(jQuery('#mini-cart'));
-						jQuery('#nav-holder2').prepend(jQuery('#mini-compare'));
+						//Move mini cart to sticky header but only if mini cart is NOT yet inside the menu holder
+						//(if parent of parent doesn't have class "nav-holder").
+						if (jQuery('#mini-cart').parent().parent().hasClass('nav-holder') === false)
+						{
+							jQuery('#nav-holder1').prepend(jQuery('#mini-cart'));
+						}
+
+						//Move mini compare to sticky header but only if mini compare is NOT yet inside the menu holder
+						//(if parent of parent doesn't have class "nav-holder").
+						if (jQuery('#mini-compare').parent().parent().hasClass('nav-holder') === false)
+						{
+							jQuery('#nav-holder2').prepend(jQuery('#mini-compare'));
+						}
 
 					}); //end: on event
 
 					//Move elements from sticky header to normal position
 					$(document).on('sticky-header-deactivated', function(e, data) {
 
-						//Move mini cart back to the regular container but only if mini cart is inside the menu holder
+						//Move mini cart back to the regular container but only if mini cart is directly inside the menu holder
 						if (jQuery('#mini-cart').parent().hasClass('nav-holder'))
 						{
 							jQuery('#mini-cart-wrapper-regular').prepend(jQuery('#mini-cart'));
 						}
 
-						//Move mini compare back to the regular container but only if mini compare is inside the menu holder
+						//Move mini compare back to the regular container but only if mini compare is directly inside the menu holder
 						if (jQuery('#mini-compare').parent().hasClass('nav-holder'))
 						{
 							jQuery('#mini-compare-wrapper-regular').prepend(jQuery('#mini-compare'));

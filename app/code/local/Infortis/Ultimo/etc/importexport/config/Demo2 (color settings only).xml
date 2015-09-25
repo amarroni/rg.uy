@@ -73,12 +73,13 @@
          <inner_bg_color>transparent</inner_bg_color>
          <padding_top>0</padding_top>
          <padding_bottom>0</padding_bottom>
-         <search_bg_color>#ffffff</search_bg_color>
+         <search_bg_color>rgba(255, 255, 255, 0.5)</search_bg_color>
          <search_hover_bg_color>#ffffff</search_hover_bg_color>
          <search_color>#bbbbbb</search_color>
          <search_hover_color>#333333</search_hover_color>
-         <search_border_color>#dddddd</search_border_color>
-         <search_border_hover_color>#888888</search_border_hover_color>
+         <search_border_color>transparent</search_border_color>
+         <search_border_hover_color>transparent</search_border_hover_color>
+         <search_max_width/>
          <dropdown_bg_color>#ffffff</dropdown_bg_color>
          <dropdown_color>#333333</dropdown_color>
          <dropdown_link_color>#777777</dropdown_link_color>

@@ -90,16 +90,19 @@
 			<action method="addBodyClass" ifconfig="ultimo_layout/responsive/responsive"><className>responsive</className></action>
 
 			<block type="core/text_list" name="main_before_top" as="main_before_top" translate="label">
-				<label>Preface, Full-width</label>
+				<label>Preface, Full Width</label>
 			</block>
+			<!--<block type="core/text_list" name="main_top" as="main_top" translate="label">
+				<label>Preface, Full-width</label>
+			</block>-->
 			<block type="core/text_list" name="preface" as="preface" translate="label">
 				<label>Preface</label>
 			</block>
-			<block type="core/text_list" name="left_first" as="left_first" translate="label">
-				<label>Left Column First (shows above main column on smaller screens)</label>
-			</block>
 			<block type="core/text_list" name="postscript" as="postscript" translate="label">
 				<label>Postscript</label>
+			</block>
+			<block type="core/text_list" name="main_bottom" as="main_bottom" translate="label">
+				<label>Postscript, Full Width</label>
 			</block>
 		</reference>
 		
@@ -308,6 +311,25 @@
 				<action method="setElementClass"><value>item container_header_primary_right_1 std</value></action>
 			</block>
 			
+		</reference>
+
+
+		<!-- Inside main menu bar ====================================================================== -->
+		<reference name="catalog.topnav.menu">
+
+			<action method="insert">
+				<block>search_wrapper</block>
+			</action>
+			<action method="insert">
+				<block>cart_sidebar</block>
+			</action>
+			<action method="insert">
+				<block>compare.mini</block>
+				<siblingName></siblingName>
+				<after>0</after>
+				<alias>compareMini</alias>
+			</action>
+
 		</reference>
 		
 		
@@ -786,9 +808,6 @@
 		<reference name="product_list">
 
 			<!-- Custom static blocks -->
-			<block type="cms/block" name="block_category_above_collection">
-				<action method="setBlockId"><block_id>block_category_above_collection</block_id></action>
-			</block>
 			<block type="cms/block" name="block_category_above_empty_collection">
 				<action method="setBlockId"><block_id>block_category_above_empty_collection</block_id></action>
 			</block>
@@ -815,9 +834,6 @@
 		<reference name="product_list">
 		
 			<!-- Custom static blocks -->
-			<block type="cms/block" name="block_category_above_collection">
-				<action method="setBlockId"><block_id>block_category_above_collection</block_id></action>
-			</block>
 			<block type="cms/block" name="block_category_above_empty_collection">
 				<action method="setBlockId"><block_id>block_category_above_empty_collection</block_id></action>
 			</block>
@@ -958,60 +974,34 @@
 	</customer_account>
 
 
-	<!-- ALL CMS PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-	<cms_page>
-	
-		<!-- Custom static blocks -->
-		<!-- IMPORTANT: These blocks are removed from home page and 404 no route page -->
-		<reference name="content">
-			<block type="page/html_wrapper" name="i_block_cms_page_top" before="-">
-				<action method="setElementClass"><value>block_cms_page_top std</value></action>
-				<block type="cms/block" name="block_cms_page_top">
-					<action method="setBlockId"><block_id>block_cms_page_top</block_id></action>
-				</block>
-			</block>
-		</reference>
-		
-	</cms_page>
+	<!-- CMS PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 	
 	<!-- Remove static blocks displayed on CMS pages from these pages: home page, 404 no route 
 		 IMPORTANT: make sure that you use correct ID -->
 	<cms_index_noroute>
-		<remove name="i_block_cms_page_top"/>
 		<remove name="block_right_top"/>
 		<remove name="block_right_bottom"/>
 	</cms_index_noroute>
 	<cms_index_defaultnoroute>
-		<remove name="i_block_cms_page_top"/>
 		<remove name="block_right_top"/>
 		<remove name="block_right_bottom"/>
 	</cms_index_defaultnoroute>
+
+	<!-- Uncomment to allow MAP functionality on home page -->
+	<!--
 	<cms_index_index>
-		<remove name="i_block_cms_page_top"/>
-		
-		<!-- Uncomment to allow MAP functionality on home page -->
-		<!--<update handle="MAP_popup" />-->
+		<update handle="MAP_popup" />
 	</cms_index_index>
+	-->
 	
 	
 	<!-- HOME PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 	<cms_index_index>
-	
-		<!-- Preface ====================================================================== -->
-		<reference name="preface">
-			<!-- Deprecated -->
-			<block type="page/html_wrapper" name="i_block_home_preface">
-				<action method="setElementClass"><value>block_home_preface std</value></action>
-				<block type="cms/block" name="block_home_preface">
-					<action method="setBlockId"><block_id>block_home_preface</block_id></action>
-				</block>
-			</block>
-		</reference>
 		
 		<!-- Left column ====================================================================== -->
 		<reference name="left">
 			<block type="core/text_list" name="home_left" as="home_left" translate="label" before="-">
-				<label>Home Left</label>
+				<label>Home, Left Column</label>
 			</block>
 			
 			<!-- Disable left sidebar blocks on home page -->
@@ -1044,7 +1034,7 @@
 		<!-- Right column ====================================================================== -->
 		<reference name="right">
 			<block type="core/text_list" name="home_right" as="home_right" translate="label" before="-">
-				<label>Home Right</label>
+				<label>Home, Right Column</label>
 			</block>
 			
 			<!-- Disable right sidebar blocks on home page -->
@@ -1065,18 +1055,7 @@
 				<action method="setBlockId"><block_id>block_home_right3</block_id></action>
 			</block>
 		</reference>
-		
-		<!-- Postscript ====================================================================== -->
-		<reference name="postscript">
-			<!-- Deprecated -->
-			<block type="page/html_wrapper" name="i_block_home_postscript">
-				<action method="setElementClass"><value>block_home_postscript std</value></action>
-				<block type="cms/block" name="block_home_postscript">
-					<action method="setBlockId"><block_id>block_home_postscript</block_id></action>
-				</block>
-			</block>
-		</reference>
-	
+
 	</cms_index_index>
 
 </layout>

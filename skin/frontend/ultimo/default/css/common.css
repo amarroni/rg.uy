@@ -7,14 +7,6 @@
 /* Blocks and headings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
-/* Sizes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
-.header-top,
-.dropdown .dropdown-heading { line-height: 36px; }
-.dropdown .dropdown-heading { max-height: 36px; } /* Set static height to improve layout of inline elements */
-
-
 /* Blocks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 */
@@ -417,22 +409,4 @@ input.input-text, select, textarea,
 	-moz-transition:	color 300ms ease-in-out, background-color 300ms ease-in-out, border-color 300ms ease-in-out;
 	-webkit-transition:	color 300ms ease-in-out, background-color 300ms ease-in-out, border-color 300ms ease-in-out;
 	-o-transition:		color 300ms ease-in-out, background-color 300ms ease-in-out, border-color 300ms ease-in-out;
-}
-
-
-/* Shadow for the main containers
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-*/
-
-/* Elements which have backgr. color can be marked with "show-bg". They will drop shadow if "shadow" class was added to the containing block. */
-.drop-shadow,
-.shadow .show-bg,
-
-/* Conditional shadow for main menu bar */
-.shadow .nav--bar-drop-shadow .mobnav-trigger,
-.shadow .nav--bar-drop-shadow #nav
-{
-	-moz-box-shadow:	0 2px 3px rgba(0, 0, 0, 0.1);
-	-webkit-box-shadow:	0 2px 3px rgba(0, 0, 0, 0.1);
-	box-shadow:			0 2px 3px rgba(0, 0, 0, 0.1);
 }

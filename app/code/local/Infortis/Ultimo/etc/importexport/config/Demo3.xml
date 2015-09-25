@@ -10,12 +10,16 @@
          <user_menu_position>primRightCol</user_menu_position>
          <toplinks_break_position>0</toplinks_break_position>
          <signup>0</signup>
-         <compare>1</compare>
-         <compare_label>1</compare_label>
+         <main_menu_position>menuContainer</main_menu_position>
+         <cart_position>userMenu</cart_position>
          <cart_label>1</cart_label>
+         <compare>1</compare>
+         <compare_position>userMenu</compare_position>
+         <compare_label>1</compare_label>
+         <sticky>1</sticky>
+         <sticky_full_width>0</sticky_full_width>
          <mode>1</mode>
          <mobile_move_switchers>0</mobile_move_switchers>
-         <sticky>1</sticky>
       </header>
       <category>
          <aspect_ratio>1</aspect_ratio>
@@ -203,6 +207,7 @@
          <search_hover_color>#716861</search_hover_color>
          <search_border_color>transparent</search_border_color>
          <search_border_hover_color>transparent</search_border_hover_color>
+         <search_max_width>300px</search_max_width>
          <dropdown_bg_color>#ffffff</dropdown_bg_color>
          <dropdown_color>#333333</dropdown_color>
          <dropdown_link_color>#333333</dropdown_link_color>
@@ -303,7 +308,7 @@
          <acco_bg_color>#f5f5f5</acco_bg_color>
          <acco_color>#333333</acco_color>
          <acco_active_bg_color>#d52462</acco_active_bg_color>
-         <acco_active_color>#fff</acco_active_color>
+         <acco_active_color>#ffffff</acco_active_color>
       </product_page>
       <slideshow>
          <tool_icon_bg_color>#ffffff</tool_icon_bg_color>

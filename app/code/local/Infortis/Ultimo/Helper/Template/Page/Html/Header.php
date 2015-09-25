@@ -126,17 +126,17 @@ class Infortis_Ultimo_Helper_Template_Page_Html_Header extends Mage_Core_Helper_
 		$display['cart']	= TRUE;
 		$display['compare']	= TRUE;
 
-		if ($this->_pos['search'] === 'userMenu')
+		if ($this->_pos['search'] === 'userMenu' || $this->_pos['search'] === 'mainMenu')
 		{
 			$display['search'] = FALSE;
 		}
 
-		if ($this->_pos['cart'] === 'userMenu')
+		if ($this->_pos['cart'] === 'userMenu' || $this->_pos['cart'] === 'mainMenu')
 		{
 			$display['cart'] = FALSE;
 		}
 
-		if ($this->_pos['compare'] === 'userMenu')
+		if ($this->_pos['compare'] === 'userMenu' || $this->_pos['compare'] === 'mainMenu')
 		{
 			$display['compare'] = FALSE;
 		}
@@ -159,11 +159,13 @@ class Infortis_Ultimo_Helper_Template_Page_Html_Header extends Mage_Core_Helper_
 		$move['compare']	= FALSE;
 
 		//Check if blocks are displayed above the skip links
-		if ($this->_pos['search'] === 'topLeft_1' || $this->_pos['search'] === 'topRight_1')
+		//if ($this->_pos['search'] === 'topLeft_1' || $this->_pos['search'] === 'topRight_1')
+		if ($this->_pos['search'] === 'topLeft_1' || $this->_pos['search'] === 'topRight_1' || $this->_pos['search'] === 'mainMenu')
 		{
 			$move['search'] = TRUE;
 		}
-		if ($this->_pos['compare'] === 'topLeft_1' || $this->_pos['compare'] === 'topRight_1')
+
+		if ($this->_pos['compare'] === 'topLeft_1' || $this->_pos['compare'] === 'topRight_1' || $this->_pos['compare'] === 'mainMenu')
 		{
 			$move['compare'] = TRUE;
 		}

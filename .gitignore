@@ -33,6 +33,7 @@ var/
 LICENSE.html
 LICENSE.txt
 LICENSE_AFL.txt
-
+downloader/*
 maintenance.flag
 media
+skin/frontend/ultimo/default/css/_config/

@@ -39,18 +39,36 @@
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ?>
+<?php
+	//Convert the value to an integer. In previous versions the font size was stored as a number with "px" suffix.
+	$baseFontSize = trim($d['font']['font_size']);
+	if (strpos($baseFontSize, "px") !== FALSE)
+	{
+		//If "px" found in the string
+		$part = explode("px", $baseFontSize);
+		$baseFontSize = intval($part[0]);
+	}
+	else
+	{
+		$baseFontSize = intval($baseFontSize);
+	}
+
+	if (empty($baseFontSize))
+	{
+		$baseFontSize = 12;
+	}
+?>
 
 body {
 	<?php if ($t->isColor($d['colors']['color'])): ?>
 		color: <?php echo $d['colors']['color']; ?>;
 	<?php endif; ?>
-	<?php if ($t->isColor($d['font']['font_size'])): ?>
-		font-size: <?php echo $d['font']['font_size']; ?>;
-	<?php endif; ?>
 
 	<?php if ($d['page']['viewport_bg_color']): ?>
 		background-color: <?php echo $d['page']['viewport_bg_color']; ?>;
 	<?php endif; ?>
+
+	font-size: <?php echo $baseFontSize; ?>px;
 }
 a
 {
@@ -208,6 +226,9 @@ h3.product-name, /*TODO:remove*/
 
 		/* Mega dropdown */
 		.nav-regular .nav-submenu--mega > li > a, /* First level of mega dropdown */
+
+		/* Containers for additional elements in the menu bar */
+		.nav-regular .nav-holder .dropdown-heading,
 
 	/* Mobile mode */
 	.mobnav-trigger,
@@ -479,24 +500,255 @@ span.icon.icon-color-productview <?php //For backward compatibility ?>
 	<?php endif; ?>
 }
 
-<?php if ($d['page']['content_padding_side']): ?>
-	.inner-container {
-		padding-left: <?php echo $d['page']['content_padding_side']; ?>px;
-		padding-right: <?php echo $d['page']['content_padding_side']; ?>px;
-	}
 
-	<?php
-	/* Below this breakpoint, if container is stretched, some side padding needs
-	   to be added to the "inner-container" to move the contents away from the edges.
-	   Important: use the same value as for default side padding of all page sections. */
-	?>
+<?php
+/* Side padding of page sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */?>
+
+<?php
+/* Default side padding of page sections.
+   Important: it's inherited by all sections but can be disabled per section. */
+?>
+.inner-container {
+	padding-left: <?php echo $d['page']['content_padding_side']; ?>px;
+	padding-right: <?php echo $d['page']['content_padding_side']; ?>px;
+}
+
+<?php
+/* Additional variable for default side padding which will be added to "inner-container" when viewport is narrow.
+   Below this breakpoint (479px), if side padding for inner container is disabled (so the container is stretched),
+   some side padding needs to be added to the "inner-container" to move the contents away from the edge of the screen. */
+
+	$mobileContentPaddingSide = 12;
+?>
+<?php if ($d['page']['content_padding_side'] === '0'): ?>
 	@media only screen and (max-width: 479px) {
-		.container.stretched > .inner-container {
-			padding-left: <?php echo $d['page']['content_padding_side']; ?>px;
-			padding-right: <?php echo $d['page']['content_padding_side']; ?>px;
+		.container > .inner-container {
+			padding-left: <?php echo $mobileContentPaddingSide; ?>px;
+			padding-right: <?php echo $mobileContentPaddingSide; ?>px;
 		}
 	}
 <?php endif; ?>
+
+
+<?php
+/* Top header
+-------------------------------------------------------------- */
+?>
+<?php if ($d['header_top']['content_padding_side'] === 'full'): ?>
+	.header-top.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['header_top']['content_padding_side'] === 'full-expanded'): ?>
+	.header-top.container {
+		width: 100%;
+		max-width: none;
+	}
+	.header-top.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['header_top']['content_padding_side'] === 'expanded'): ?>
+	.header-top.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Primary header
+-------------------------------------------------------------- */
+?>
+<?php if ($d['header_primary']['content_padding_side'] === 'full'): ?>
+	.header-primary.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['header_primary']['content_padding_side'] === 'full-expanded'): ?>
+	.header-primary.container {
+		width: 100%;
+		max-width: none;
+	}
+	.header-primary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['header_primary']['content_padding_side'] === 'expanded'): ?>
+	.header-primary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Main menu
+-------------------------------------------------------------- */
+?>
+<?php if ($d['nav']['content_padding_side'] === 'full'): ?>
+	.nav.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['nav']['content_padding_side'] === 'full-expanded'): ?>
+	.nav.container {
+		width: 100%;
+		max-width: none;
+	}
+	.nav.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['nav']['content_padding_side'] === 'expanded'): ?>
+	.nav.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['nav']['content_padding_side'] === 'override'): ?>
+	.nav.container > .inner-container {
+		padding-left: <?php echo intval($d['nav']['content_padding_side_value']); ?>px;
+		padding-right: <?php echo intval($d['nav']['content_padding_side_value']); ?>px;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Main
+-------------------------------------------------------------- */
+?>
+<?php if ($d['main']['content_padding_side'] === 'full'): ?>
+	.main.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['main']['content_padding_side'] === 'full-expanded'): ?>
+	.main.container {
+		width: 100%;
+		max-width: none;
+	}
+	.main.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['main']['content_padding_side'] === 'expanded'): ?>
+	.main.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	@media only screen and (max-width: 479px) {
+		.main.container:not(.no-side-padding) > .inner-container {
+			padding-left: <?php echo $mobileContentPaddingSide; ?>px;
+			padding-right: <?php echo $mobileContentPaddingSide; ?>px;
+		}
+	}
+<?php endif; ?>
+
+
+<?php
+/* Top footer
+-------------------------------------------------------------- */
+?>
+<?php if ($d['footer_top']['content_padding_side'] === 'full'): ?>
+	.footer-top.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['footer_top']['content_padding_side'] === 'full-expanded'): ?>
+	.footer-top.container {
+		width: 100%;
+		max-width: none;
+	}
+	.footer-top.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['footer_top']['content_padding_side'] === 'expanded'): ?>
+	.footer-top.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Primary footer
+-------------------------------------------------------------- */
+?>
+<?php if ($d['footer_primary']['content_padding_side'] === 'full'): ?>
+	.footer-primary.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['footer_primary']['content_padding_side'] === 'full-expanded'): ?>
+	.footer-primary.container {
+		width: 100%;
+		max-width: none;
+	}
+	.footer-primary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['footer_primary']['content_padding_side'] === 'expanded'): ?>
+	.footer-primary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Secondary footer
+-------------------------------------------------------------- */
+?>
+<?php if ($d['footer_secondary']['content_padding_side'] === 'full'): ?>
+	.footer-secondary.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['footer_secondary']['content_padding_side'] === 'full-expanded'): ?>
+	.footer-secondary.container {
+		width: 100%;
+		max-width: none;
+	}
+	.footer-secondary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['footer_secondary']['content_padding_side'] === 'expanded'): ?>
+	.footer-secondary.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
+
+<?php
+/* Bottom footer
+-------------------------------------------------------------- */
+?>
+<?php if ($d['footer_bottom']['content_padding_side'] === 'full'): ?>
+	.footer-bottom.container {
+		width: 100%;
+		max-width: none;
+	}
+<?php elseif ($d['footer_bottom']['content_padding_side'] === 'full-expanded'): ?>
+	.footer-bottom.container {
+		width: 100%;
+		max-width: none;
+	}
+	.footer-bottom.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php elseif ($d['footer_bottom']['content_padding_side'] === 'expanded'): ?>
+	.footer-bottom.container > .inner-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+<?php endif; ?>
+
 
 
 <?php
@@ -672,7 +924,6 @@ span.icon.icon-color-productview <?php //For backward compatibility ?>
 	<?php if ($d['header_top']['padding_top']): ?>
 		padding-top: <?php echo intval($d['header_top']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['header_top']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['header_top']['padding_bottom']); ?>px;
 	<?php endif; ?>
@@ -709,6 +960,25 @@ span.icon.icon-color-productview <?php //For backward compatibility ?>
 }
 
 
+<?php
+/* Height of the top header.
+   Important: set max height to improve layout of inline elements.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */?>
+<?php
+	$topHeaderLineHeight = $d['header_top']['line_height'];
+?>
+.header-top,
+.header-top .dropdown .dropdown-heading,
+.header-top .links > li
+{
+	line-height: <?php echo $topHeaderLineHeight; ?>px;
+}
+.header-top .dropdown .dropdown-heading
+{
+	max-height: <?php echo $topHeaderLineHeight; ?>px;
+} 
+
+
 
 <?php
 //Header primary
@@ -718,16 +988,23 @@ span.icon.icon-color-productview <?php //For backward compatibility ?>
 
 .header-primary-container
 {
+	<?php if ($d['header_primary']['bg_color']): ?>
+		background-color: <?php echo $d['header_primary']['bg_color']; ?>;
+	<?php endif; ?>
+
 	<?php if ($d['header_primary']['padding_top']): ?>
 		padding-top: <?php echo intval($d['header_primary']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['header_primary']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['header_primary']['padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 .header-primary
 {
+	<?php if ($d['header_primary']['inner_bg_color']): ?>
+		background-color: <?php echo $d['header_primary']['inner_bg_color']; ?>;
+	<?php endif; ?>
+
 	<?php if ($d['header_primary']['content_padding_top']): ?>
 		padding-top: <?php echo intval($d['header_primary']['content_padding_top']); ?>px;
 	<?php endif; ?>
@@ -735,6 +1012,26 @@ span.icon.icon-color-productview <?php //For backward compatibility ?>
 		padding-bottom: <?php echo intval($d['header_primary']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
+
+
+<?php
+/* Height of the elements in the primary header.
+   Important: set max height to improve layout of inline elements.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */?>
+<?php
+	$primaryHeaderFontSize = $d['header_primary']['font_size'];
+	$primaryHeaderLineHeight = $d['header_primary']['line_height'];
+?>
+.header-primary .dropdown .dropdown-heading,
+.header-primary .links > li
+{
+	font-size: <?php echo $primaryHeaderFontSize; ?>px;
+	line-height: <?php echo $primaryHeaderLineHeight; ?>px;
+}
+.header-primary .dropdown .dropdown-heading
+{
+	max-height: <?php echo $primaryHeaderLineHeight; ?>px;
+} 
 
 
 
@@ -989,72 +1286,100 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['nav']['padding_top']): ?>
 		padding-top: <?php echo intval($d['nav']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['nav']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['nav']['padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 
-<?php
-/* Important: mobile menu in mobile header.
-   Padding is completely removed in basic mobile header rules for that block (to reset the padding which is added for all "skip-content" blocks).
-   Because of that, we need to re-apply the bottom padding for navigation container (if padding exist).
-   Bottom padding is not removed so that mobile header look more similar to regular header. */
-?>
-<?php if ($d['nav']['padding_bottom']): ?>
-.header-mobile .skip-content.nav-container {
-	padding-bottom: <?php echo intval($d['nav']['padding_bottom']); ?>px;
-}
-<?php endif; ?>
-
-<?php
-/* Menu inner container.
-   If menu bar has inner background color (to show an outline) */
-?>
-<?php if ($t->isColor($d['nav']['inner_bg_color'])): ?>
-	.nav
-	{
+.nav
+{
+	<?php //Menu bar inner background color (which is visible as an outline) ?>
+	<?php if ($t->isColor($d['nav']['inner_bg_color'])): ?>
 		background-color: <?php echo $d['nav']['inner_bg_color']; ?>;
-	}
-<?php endif; ?>
+	<?php endif; ?>
 
-<?php
-//Bottom padding of ".header-primary" can be also applied as bottom padding of ".nav"
-//to have the same space when menu opened
-?>
-<?php if ($d['header_primary']['content_padding_bottom']): ?>
-	.header-mobile .nav
-	{
-		margin-bottom: <?php echo intval($d['header_primary']['content_padding_bottom']); ?>px;
-	}
-<?php endif; ?>
+	<?php if ($d['nav']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['nav']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['nav']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['nav']['content_padding_bottom']); ?>px;
+	<?php endif; ?>
+}
 
-<?php
-/* Menu bar - with outline.
-   If inner container has a background color, it gets additional class "has-outline".
-   Add padding, the same value as for side padding of all page sections. */
-?>
-<?php if ($d['page']['content_padding_side']): ?>
-.nav.has-outline > .inner-container {
-	padding-top: <?php echo $d['page']['content_padding_side']; ?>px;
-	padding-bottom: <?php echo $d['page']['content_padding_side']; ?>px;
+<?php //If menu bar has inner background color, it can have an outline, so remove bottom margin of the trigger ?>
+<?php if ($t->isColor($d['nav']['inner_bg_color'])): ?>
+.nav .mobnav-trigger {
+	margin-bottom: 0;
 }
 <?php endif; ?>
 
+
 <?php
-	$headerInnerBgColor		= $d['header']['inner_bg_color']; //Bg. color of "primary header" section is inherited from "header" section
-	$headerStretched		= $d['header_primary']['stretched'];
-	$navInnerBgColor		= $d['nav']['inner_bg_color'];
-	$navStretched			= $d['nav']['stretched'];
+/* Obsolete:
+   Padding is completely removed in basic mobile header rules for that block (to reset the padding which is added for all "skip-content" blocks).
+   Because of that, if the bottom padding in the outer conteiner of nav exists, we need to re-apply that padding to keep the gap below the menu
+   in mobile header. But this time we add the gap using "margin-bottom" and we apply it to "skip-content" blocks.
+   Thanks to that mobile header looks more similar to regular header. */
+?>
+<?php /*if ($d['nav']['padding_bottom']): ?>
+.header-mobile .skip-content {
+	margin-bottom: <?php echo intval($d['nav']['padding_bottom']); ?>px;
+}
+<?php endif; */?>
+
+
+<?php
+/* Menu bar with an outline.
+   If nav container has background color, remove padding from it and from its "inner-container".
+   add padding, the same value as for side padding of all page sections. */
+?>
+<?php
+	//Inner background color of primary header container can be inherited from header container
+	$headerInnerBgColor = '';
+	if ($t->isColor($d['header_primary']['inner_bg_color']))
+	{
+		$headerInnerBgColor = $d['header_primary']['inner_bg_color'];
+	}
+	else
+	{
+		if ($t->isColor($d['header']['inner_bg_color']))
+		{
+			$headerInnerBgColor = $d['header']['inner_bg_color'];
+		}
+	}
+
+	$headerStretched = FALSE;
+	if ($d['header_primary']['content_padding_side'] === 'expanded')
+	{
+		$headerStretched = TRUE;
+	}
+
+	//Inner background color of nav container
+	$navInnerBgColor = '';
+	if ($t->isColor($d['nav']['inner_bg_color']))
+	{
+		$navInnerBgColor = $d['nav']['inner_bg_color'];
+	}
+
+	$navStretched = FALSE;
+	if ($d['nav']['content_padding_side'] === 'expanded')
+	{
+		$navStretched = TRUE;
+	}
+
+	//Check if nav container should be stretched
 	$makeNavStretched = FALSE;
 
+	//If primary header container has inner background color but nav container has no background color and is not stretched
 	if ($headerInnerBgColor)
 	{
-		if (! $navInnerBgColor)
+		if ((! $navInnerBgColor) && (! $navStretched))
 		{
 			$makeNavStretched = TRUE;
 		}
 	}
+
+	//If primary header container is stretched but nav container is not stretched
 	if ($headerStretched)
 	{
 		if (! $navStretched)
@@ -1062,22 +1387,18 @@ li.level0 > a:hover > span > .pin-bottom:before,
 			$makeNavStretched = TRUE;
 		}
 	}
+	
 ?>
 <?php if ($makeNavStretched): ?>
 
 	<?php //Make inner container stretched ?>
-	.header-mobile .nav > .inner-container
+	.header-mobile .nav
 	{
 		padding: 0;
 	}
-	
-	<?php //But not below this breakpoint ?>
-	@media only screen and (max-width: 479px) {
-		.header-mobile .nav > .inner-container
-		{
-			padding-left: <?php echo $d['page']['content_padding_side']; ?>px;
-			padding-right: <?php echo $d['page']['content_padding_side']; ?>px;
-		}
+	.header-mobile .nav > .inner-container
+	{
+		padding: 0;
 	}
 
 <?php endif; ?>
@@ -1085,14 +1406,16 @@ li.level0 > a:hover > span > .pin-bottom:before,
 
 <?php
 /* Sticky menu
---------------------------------------------------------------
-   Important: these rules have to be declared before rules
+-------------------------------------------------------------- */
+?>
+<?php
+/* Important: these rules have to be declared before rules
    of the colors of non-sticky menu, so that hover item color
    and current item color can override sticky menu color rules. */
 ?>
 <?php //Override default menu bar color when sticky menu is enabled. Important: regular mode only. ?>
 <?php if ($d['nav']['sticky_item_bg_color']): ?>
-	.sticky-header .sticky-container, <?php //Sticky menu container ?>
+	.sticky-header .nav-container, <?php //Sticky menu container ?>
 	.sticky-header .nav-regular <?php //Sticky menu bar ?>
 	{
 		background-color: <?php echo $d['nav']['sticky_item_bg_color']; ?>;
@@ -1140,7 +1463,10 @@ li.level0 > a:hover > span > .pin-bottom:before,
 			background-color: <?php echo $d['nav']['bg_color']; ?>;
 		}
 		.nav-regular .nav-item.level0 > a,
-		#nav .nav-item--homeicon a <?php //Single icon has the same color as default item ?>
+		<?php //Single icon has the same color as default item ?>
+		#nav .nav-item--homeicon a,
+		<?php //Containers for additional elements in the menu bar ?>
+		.nav-regular .nav-holder .dropdown-heading 
 		{
 			color: <?php echo $d['nav']['color']; ?>;
 		}
@@ -1442,7 +1768,10 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php //Regular menu ?>
 
 		<?php //All types: level 1 ?>
-		.nav-regular .nav-item.level0 > a
+		.nav-regular .nav-item.level0 > a,
+
+		<?php //Containers for additional elements in the menu bar ?>
+		.nav-regular .nav-holder .dropdown-heading
 		{
 			font-size:<?php echo $d['nav']['level1_font_size']; ?>px;
 			<?php if ($d['nav']['level1_font_uppercase']): ?>
@@ -1527,7 +1856,6 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['main']['padding_top']): ?>
 		padding-top: <?php echo intval($d['main']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['main']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['main']['padding_bottom']); ?>px;
 	<?php endif; ?>
@@ -1536,6 +1864,13 @@ li.level0 > a:hover > span > .pin-bottom:before,
 {
 	<?php if ($d['main']['inner_bg_color']): ?>
 		background-color: <?php echo $d['main']['inner_bg_color']; ?>;
+	<?php endif; ?>
+
+	<?php if ($d['main']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['main']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['main']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['main']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 
@@ -1734,6 +2069,12 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['footer']['bg_color']): ?>
 		background-color: <?php echo $d['footer']['bg_color']; ?>;
 	<?php endif; ?>
+
+	<?php if ($d['footer']['bg_image']): ?>
+		background-repeat: <?php echo $d['footer']['bg_repeat']; ?>;
+		background-attachment: <?php echo $d['footer']['bg_attachment']; ?>;
+		background-position: <?php echo $d['footer']['bg_positionx'] .' '. $d['footer']['bg_positiony']; ?>;
+	<?php endif; ?>
 }
 .footer
 {
@@ -1856,7 +2197,6 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['footer_top']['padding_top']): ?>
 		padding-top: <?php echo intval($d['footer_top']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['footer_top']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['footer_top']['padding_bottom']); ?>px;
 	<?php endif; ?>
@@ -1869,6 +2209,13 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	
 	<?php if ($t->isColor($d['footer_top']['color'])): ?>
 		color: <?php echo $d['footer_top']['color']; ?>;
+	<?php endif; ?>
+
+	<?php if ($d['footer_top']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['footer_top']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['footer_top']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['footer_top']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 .footer-top a
@@ -1898,7 +2245,6 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['footer_primary']['padding_top']): ?>
 		padding-top: <?php echo intval($d['footer_primary']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['footer_primary']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['footer_primary']['padding_bottom']); ?>px;
 	<?php endif; ?>
@@ -1911,6 +2257,13 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	
 	<?php if ($t->isColor($d['footer_primary']['color'])): ?>
 		color: <?php echo $d['footer_primary']['color']; ?>;
+	<?php endif; ?>
+
+	<?php if ($d['footer_primary']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['footer_primary']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['footer_primary']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['footer_primary']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 .footer-primary a
@@ -1940,7 +2293,6 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	<?php if ($d['footer_secondary']['padding_top']): ?>
 		padding-top: <?php echo intval($d['footer_secondary']['padding_top']); ?>px;
 	<?php endif; ?>
-
 	<?php if ($d['footer_secondary']['padding_bottom']): ?>
 		padding-bottom: <?php echo intval($d['footer_secondary']['padding_bottom']); ?>px;
 	<?php endif; ?>
@@ -1953,6 +2305,13 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	
 	<?php if ($t->isColor($d['footer_secondary']['color'])): ?>
 		color: <?php echo $d['footer_secondary']['color']; ?>;
+	<?php endif; ?>
+
+	<?php if ($d['footer_secondary']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['footer_secondary']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['footer_secondary']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['footer_secondary']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 .footer-secondary a
@@ -1987,6 +2346,13 @@ li.level0 > a:hover > span > .pin-bottom:before,
 	
 	<?php if ($t->isColor($d['footer_bottom']['color'])): ?>
 		color: <?php echo $d['footer_bottom']['color']; ?>;
+	<?php endif; ?>
+
+	<?php if ($d['footer_bottom']['content_padding_top']): ?>
+		padding-top: <?php echo intval($d['footer_bottom']['content_padding_top']); ?>px;
+	<?php endif; ?>
+	<?php if ($d['footer_bottom']['content_padding_bottom']): ?>
+		padding-bottom: <?php echo intval($d['footer_bottom']['content_padding_bottom']); ?>px;
 	<?php endif; ?>
 }
 .footer-bottom a
@@ -2027,4 +2393,94 @@ li.level0 > a:hover > span > .pin-bottom:before,
 {
 	background-color: <?php echo $d['colors']['social_icon_hover_bg_color']; ?> !important;
 	color: <?php echo $d['colors']['social_icon_hover_color']; ?> !important;
+}
+
+
+<?php
+/* Shadow for the main containers
+-------------------------------------------------------------- */
+?>
+<?php
+/* Inner containers which have background color get a shadow.
+   They will drop shadow if shadow is enabled (body element has "shadow" class). */
+?>
+
+<?php if ($d['header_top']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['header_top']['inner_bg_color'])): ?>
+		body.shadow .header-top,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['header']['inner_bg_color'])): ?>
+		body.shadow .header-top,
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($d['header_primary']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['header_primary']['inner_bg_color'])): ?>
+		body.shadow .header-primary,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['header']['inner_bg_color'])): ?>
+		body.shadow .header-primary,
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php //Conditional shadow for main menu bar  ?>
+<?php if ($d['effects']['shadow_nav'] === 'inner-container'): ?>
+	body.shadow .nav,
+<?php elseif ($d['effects']['shadow_nav'] === 'bar'): ?>
+	body.shadow .mobnav-trigger,
+	body.shadow #nav,
+<?php endif; ?>
+
+<?php if ($t->isColor($d['main']['inner_bg_color'])): ?>
+	body.shadow .main,
+<?php endif; ?>
+
+<?php if ($d['footer_top']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['footer_top']['inner_bg_color'])): ?>
+		body.shadow .footer-top,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['footer']['inner_bg_color'])): ?>
+		body.shadow .footer-top,
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($d['footer_primary']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['footer_primary']['inner_bg_color'])): ?>
+		body.shadow .footer-primary,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['footer']['inner_bg_color'])): ?>
+		body.shadow .footer-primary,
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($d['footer_secondary']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['footer_secondary']['inner_bg_color'])): ?>
+		body.shadow .footer-secondary,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['footer']['inner_bg_color'])): ?>
+		body.shadow .footer-secondary,
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($d['footer_bottom']['inner_bg_color']): ?>
+	<?php if ($t->isColor($d['footer_bottom']['inner_bg_color'])): ?>
+		body.shadow .footer-bottom,
+	<?php endif; ?>
+<?php else: ?>
+	<?php if ($t->isColor($d['footer']['inner_bg_color'])): ?>
+		body.shadow .footer-bottom,
+	<?php endif; ?>
+<?php endif; ?>
+
+body.shadow .show-bg, <?php //Deprecated. Left for backward compatibility. ?>
+.drop-shadow
+{
+	-moz-box-shadow:	0 2px 3px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow:	0 2px 3px rgba(0, 0, 0, 0.1);
+	box-shadow:			0 2px 3px rgba(0, 0, 0, 0.1);
 }

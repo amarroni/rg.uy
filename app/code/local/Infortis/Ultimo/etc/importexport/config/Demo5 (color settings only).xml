@@ -24,8 +24,8 @@
          <social_icon_color>#ffffff</social_icon_color>
          <social_icon_hover_bg_color>#e50640</social_icon_hover_bg_color>
          <social_icon_hover_color>#ffffff</social_icon_hover_color>
-         <important_link_hover_color>#333333</important_link_hover_color>
-         <important_link_hover_bg_color>#eeeeee</important_link_hover_bg_color>
+         <important_link_hover_color>#fff</important_link_hover_color>
+         <important_link_hover_bg_color>#e50640</important_link_hover_bg_color>
          <label_new_bg_color>#8fe1f3</label_new_bg_color>
          <label_new_color>#ffffff</label_new_color>
          <label_sale_bg_color>#e50640</label_sale_bg_color>
@@ -77,8 +77,9 @@
          <search_hover_bg_color>#ffffff</search_hover_bg_color>
          <search_color>#bbbbbb</search_color>
          <search_hover_color>#333333</search_hover_color>
-         <search_border_color>#ddd</search_border_color>
-         <search_border_hover_color>#333333</search_border_hover_color>
+         <search_border_color>#dddddd</search_border_color>
+         <search_border_hover_color>#e50640</search_border_hover_color>
+         <search_max_width> </search_max_width>
          <dropdown_bg_color>#ffffff</dropdown_bg_color>
          <dropdown_color>#333333</dropdown_color>
          <dropdown_link_color>#333333</dropdown_link_color>

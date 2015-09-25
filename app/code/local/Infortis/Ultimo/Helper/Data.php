@@ -36,12 +36,12 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return array
 	 */
 	public function getCfgGroup($group, $storeId = NULL)
-    {
+	{
 		if ($storeId)
 			return Mage::getStoreConfig('ultimo/' . $group, $storeId);
 		else
 			return Mage::getStoreConfig('ultimo/' . $group);
-    }
+	}
 	
 	/**
 	 * Get theme's design section from the configuration array
@@ -49,20 +49,20 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return array
 	 */
 	public function getCfgSectionDesign($storeId = NULL)
-    {
+	{
 		if ($storeId)
 			return Mage::getStoreConfig('ultimo_design', $storeId);
 		else
 			return Mage::getStoreConfig('ultimo_design');
-    }
+	}
 	
 	/**
 	 * Deprecated: old method - for backward compatibility
 	 */
 	public function getDesignCfgSection($storeId = NULL)
-    {
+	{
 		return $this->getCfgSectionDesign($storeId);
-    }
+	}
 	
 	
 	
@@ -74,9 +74,9 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return string
 	 */
 	public function getCfg($optionString)
-    {
-        return Mage::getStoreConfig('ultimo/' . $optionString);
-    }
+	{
+		return Mage::getStoreConfig('ultimo/' . $optionString);
+	}
 	
 	/**
 	 * Get theme's design settings (single option)
@@ -84,9 +84,9 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return string
 	 */
 	public function getCfgDesign($optionString, $storeCode = NULL)
-    {
-        return Mage::getStoreConfig('ultimo_design/' . $optionString, $storeCode);
-    }
+	{
+		return Mage::getStoreConfig('ultimo_design/' . $optionString, $storeCode);
+	}
 	
 	/**
 	 * Get theme's layout settings (single option)
@@ -94,21 +94,21 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return string
 	 */
 	public function getCfgLayout($optionString, $storeCode = NULL)
-    {
-        return Mage::getStoreConfig('ultimo_layout/' . $optionString, $storeCode);
-    }
+	{
+		return Mage::getStoreConfig('ultimo_layout/' . $optionString, $storeCode);
+	}
 
 	/**
 	 * Deprecated: old methods - for backward compatibility
 	 */
 	public function getDesignCfg($optionString)
-    {
-        return $this->getCfgDesign($optionString);
-    }
+	{
+		return $this->getCfgDesign($optionString);
+	}
 	public function getLayoutCfg($optionString, $storeCode = NULL)
-    {
-        return $this->getCfgLayout($optionString, $storeCode);
-    }
+	{
+		return $this->getCfgLayout($optionString, $storeCode);
+	}
 
 
 
@@ -161,9 +161,9 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return string
 	 */
 	public function getBgImagesPath()
-    {
-        return $this->_bgImagesPath;
-    }
+	{
+		return $this->_bgImagesPath;
+	}
 	
 	/**
 	 * Get textures/patterns directory path
@@ -171,9 +171,9 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 	 * @return string
 	 */
 	public function getTexPath()
-    {
-        return $this->_texPath;
-    }
+	{
+		return $this->_texPath;
+	}
 
 
 
@@ -262,7 +262,7 @@ class Infortis_Ultimo_Helper_Data extends Mage_Core_Helper_Abstract
 				
 			for ($i = 0; $i < $colCount; $i++)
 			{
-				$classString = $gridClassPersistent .' '. $gridClass; //. ($i==0?' alpha':'') . ($i==$colCount-1?' omega':'');
+				$classString = $gridClass; //. ($i==0?' alpha':'') . ($i==$colCount-1?' omega':'');
 				$html .= '<div class="'. $classString .'">';
 				$html .= '	<div class="std">'. $colHtml[$i] .'</div>';
 				$html .= '</div>';

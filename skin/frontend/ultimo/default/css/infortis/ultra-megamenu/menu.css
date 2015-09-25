@@ -430,11 +430,25 @@ div.mobnav-trigger-wrapper { display:none; } /* Important: added "div" to select
 	line-height: 50px; /* The same as height of the menu bar */
 }
 
+/* Drop-downs
+-------------------------------------------------------------- */
 /* Set max height (the same as height of the menu bar) to avoid issues with excessive height
    of the dropdown elements when dropdown is inserted inside the menu bar. */
 #nav .nav-holder .dropdown-heading {
 	max-height: 50px;
 	line-height: 50px;
+}
+#nav .nav-holder .dropdown-heading .label {
+	vertical-align: baseline;
+}
+
+/* Search box
+-------------------------------------------------------------- */
+#nav .nav-holder .search-wrapper {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 
