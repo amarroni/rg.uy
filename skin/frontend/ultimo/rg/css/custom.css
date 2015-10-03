@@ -424,3 +424,8 @@ a:hover .caption.light1 p{
 		padding: 30px 4%;
 	}
 }
+/* Items */
+.itemslider .item {padding:0px; margin: 0 5px; background-color: #fff}
+.cms-home .products-grid .item {padding-bottom: 0px}
+.itemslider .more-info{background-color: #008eca; height: 46px; display: block}
+.itemslider .more-info span{padding: 15px 0 10px; display: block;color: #fff; font-family: "Oswald", georgia, serif; font-size:14px}
