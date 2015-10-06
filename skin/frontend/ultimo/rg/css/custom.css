@@ -231,6 +231,13 @@ a:hover .caption.light1 p{
 .inner-container{
 	padding: 0;
 }
+
+/*CONTACT US*/
+.fieldset .legend{
+	border-bottom: none;
+	text-transform: uppercase;
+}
+
 /* FOOTER */
 .footer-top-container,
 .footer-primary-container,
