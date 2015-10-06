@@ -217,15 +217,18 @@
                 	<div class="item item-left">
                     	<p class="footer-copyright"><?php echo $this->getCopyright(); ?></p>
                     </div>
-                    
+
+                    <?php if ($tmp = $this->getChildHtml('block_footer_social')): ?>
+                        <div class="item item-right block_footer_social"><?php echo $tmp; ?></div>
+                    <?php endif; ?>
+
                     <?php if ($tmp = $this->getChildHtml('block_footer_contact')): ?>
                     	<div class="item item-right block_footer_contact"><?php echo $tmp; ?></div>
                     <?php endif; ?>
-                    
+
                     <?php if ($theme->getCfg('magento_blocks/store_switcher') && $tmp = $this->getChildHtml('store_switcher')): ?>
                     	<div class="item item-right"><?php echo $tmp; ?></div>
                     <?php endif; ?>
-                    
                     
                 </div> <!-- end: footer-bottom section -->
 

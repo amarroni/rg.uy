@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<PRODUCT_TYPE_configurable>
+		<reference name="container_product_primary_1">
+			<block type="catalog/product_view" name="rg.gloves.properties"
+				   template="catalog/product/view/rg_gloves_properties.phtml"/>
+		</reference>
+	</PRODUCT_TYPE_configurable>
+</layout>

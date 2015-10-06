@@ -96,7 +96,81 @@
 .header-regular .right-column .user-menu .search-wrapper{
 	width: 237px;
 }
-
+/* account links */
+#account-links-wrapper-regular {
+	display: inline-block;
+}
+#account-links-wrapper-regular .links > li > a {
+	background-image: url("../images/bg-account-links-separator.png");
+	font-family: "Oswald",sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 0 0.5833em 0 1.5em;
+	text-transform: uppercase;
+}
+#account-links-wrapper-regular .links > li.first > a {
+	background-image: none;
+	color: #949494;
+}
+#account-links-wrapper-regular .links > li.last > a {
+	color: #676767;
+}
+/* search */
+#search-wrapper-regular {
+	display: inline-block;
+}
+#search-wrapper-regular .form-search .input-text {
+	font-family: "Titillium web","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 600;
+}
+#search-wrapper-regular .form-search .button {
+	background: rgba(0, 0, 0, 0) url("../images/bg-search-icon.png") no-repeat scroll center center;
+}
+#search-wrapper-regular .form-search .button::before {
+	content: none;
+}
+/* mini cart */
+#mini-cart-wrapper-regular {
+	display: inline-block;
+	margin-left: 10px;
+}
+/* store switcher */
+#store-switcher {
+	display: inline-block;
+	margin-left: 15px;
+}
+#store-switcher .links {
+	float: right;
+}
+#store-switcher .links > li {
+	margin-left: 5px;
+}
+#store-switcher .links > li > span,
+#store-switcher .links > li > a {
+	background: #909497 none repeat scroll 0 0;
+	-webkit-border-radius: 12px;/*Safari, Chrome*/
+	-moz-border-radius: 12px;/*Firefox*/
+	border-radius: 12px;
+	color: #ffffff;
+	display: inline-block;
+	font-family: "Titillium web","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	height: 25px;
+	line-height: 25px;
+	padding: 0;
+	text-align: center;
+	width: 25px;
+}
+#store-switcher .links > li.current > span,
+#store-switcher .links > li.current > a {
+	background: #428dc7 none repeat scroll 0 0;
+}
+#store-switcher .links > li > a:hover {
+	color: #ffffff !important;
+}
 /*HOME*/
 /* Slideshow */
 .pagination-pos-over-bottom-centered .owl-pagination{
@@ -244,7 +318,46 @@ a:hover .caption.light1 p{
 .footer-secondary-container{
 	display: none;
 }
-
+.footer-bottom-container {
+	background: #ebebeb url("../images/bg-footer.png") repeat scroll center top;
+}
+.footer-copyright {
+	font-family: "Oswald",sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.block_footer_contact {
+	font-family: "Oswald",sans-serif;
+	font-size: 13px;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.block_footer_contact strong {
+	font-weight: 700;
+}
+.block_footer_contact .email {
+	background: rgba(0, 0, 0, 0) url("../images/icon_email.png") no-repeat scroll 0 0;
+	display: inline-block;
+	height: 15px;
+	line-height: 1em;
+	text-indent: -999999px;
+	width: 19px;
+}
+.block_footer_social ul {
+	margin: -7px 0 0 7px;
+}
+.block_footer_social ul li {
+	display: inline-block;
+	float: left;
+	margin: 0 7px 0 0;
+}
+/* Responsive */
+@media only screen and (max-width: 1037px) {
+	.header-regular .right-column .user-menu .search-wrapper {
+		width: auto;
+	}
+}
 
 @media only screen and (max-width: 1200px) {
 	.main-container .container{
@@ -274,6 +387,42 @@ a:hover .caption.light1 p{
 	}
 }
 
+@media only screen and (max-width: 769px) {
+	#store-switcher {
+		margin: 0;
+		width: 100%;
+	}
+	#store-switcher .links {
+		float: none;
+		text-align: center;
+	}
+	#store-switcher .links > li {
+		display: inline-block;
+		float: none;
+		margin: 0 5px;
+	}
+	.header .hp-block .item {
+		float: none;
+	}
+	#search-wrapper-regular {
+		margin: -18px 0 0;
+		width: 100%;
+	}
+	#account-links-wrapper-regular {
+		width: 100%;
+	}
+	#account-links-wrapper-regular .links > li > a {
+		background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+		padding: 0 0.5833em;
+	}
+	#store-switcher {
+		display: none;
+	}
+	.block_footer_social {
+		display: none !important;
+	}
+}
+
 @media only screen and (max-width: 639px) {
 	.home-centered div{
 		min-height: auto;
@@ -282,3 +431,8 @@ a:hover .caption.light1 p{
 		padding: 30px 4%;
 	}
 }
+/* Items */
+.itemslider .item {padding:0px; margin: 0 5px; background-color: #fff}
+.cms-home .products-grid .item {padding-bottom: 0px}
+.itemslider .more-info{background-color: #008eca; height: 46px; display: block}
+.itemslider .more-info span{padding: 15px 0 10px; display: block;color: #fff; font-family: "Oswald", georgia, serif; font-size:14px}
