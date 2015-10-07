@@ -835,7 +835,8 @@
 
 		<!-- Remove currency switcher from sidebar -->
 		<reference name="left">
-			<action method="unsetChild"><name>currency</name></action>			
+			<action method="unsetChild"><name>currency</name></action>
+			<action method="unsetChild"><name>paypal.partner.right.logo</name></action>
 		</reference>
 		
 	</catalog_category_layered>
