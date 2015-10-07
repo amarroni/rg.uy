@@ -14,11 +14,20 @@ $gripSunny      = $_product->getAttributeText('rg_grip_sunny');
 $abrasionRes    = $_product->getAttributeText('rg_abrasion_res');
 ?>
 <?php if($gripWet): ?>
-    <div><label><?php echo $this->__('Grip wet') ?></label> <span><?php echo 'value: ' . $gripWet; ?></span></div>
+    <div class="bkg-prop wet">
+        <label><?php echo $this->__('Grip wet') ?></label>
+        <span><span class="span-<?php echo $gripWet;?>"></span></span>
+    </div>
 <?php endif;?>
 <?php if($gripSunny): ?>
-    <div><label><?php echo $this->__('Grip sunny') ?></label> <span><?php echo 'value: ' . $gripSunny; ?></span></div>
+    <div class="bkg-prop sun">
+        <label><?php echo $this->__('Grip sunny') ?></label>
+        <span><span class="span-<?php echo $gripSunny;?>"></span></span>
+    </div>
 <?php endif;?>
 <?php if($abrasionRes): ?>
-    <div><label><?php echo $this->__('Abrasion Resistance') ?></label> <span><?php echo 'value: ' . $abrasionRes; ?></span></div>
+    <div class="bkg-prop adv">
+        <label><?php echo $this->__('Abrasion Resistance') ?></label>
+        <span><span class="span-<?php echo $abrasionRes;?>"></span></span>
+    </div>
 <?php endif;?>

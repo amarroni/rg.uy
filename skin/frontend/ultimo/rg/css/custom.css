@@ -571,3 +571,41 @@ a:hover .caption.light1 p{
 .cms-home .products-grid .item {padding-bottom: 0px}
 .itemslider .more-info{background-color: #008eca; height: 46px; display: block}
 .itemslider .more-info span{padding: 15px 0 10px; display: block;color: #fff; font-family: "Oswald", georgia, serif; font-size:14px}
+/*RG product properties*/
+.sun {background: url(../images/sun.png) 0 0 no-repeat transparent;}
+.wet {background: url(../images/nube.png) 0 0 no-repeat transparent;}
+.adv {background: url(../images/adversidad.png) 0 0 no-repeat transparent;}
+.bkg-prop{padding-left: 40px;height: 29px;padding-bottom: 5px;}
+.bkg-prop label{display: none}
+.bkg-prop span{
+	background-image: url(../images/bg-puntaciones-product.png);
+	background-repeat: repeat-x;
+	background-position: -5px 7px;
+	height: 29px;
+	width: 100px;
+	display: block;
+}
+.bkg-prop span span.span-0{
+	background-position: -5px -23px;
+	width: 0px;
+}
+.bkg-prop span span.span-1{
+	background-position: -5px -23px;
+	width: 19px;
+}
+.bkg-prop span span.span-2{
+	background-position: -5px -23px;
+	width: 39px;
+}
+.bkg-prop span span.span-3{
+	background-position: -5px -23px;
+	width: 60px;
+}
+.bkg-prop span span.span-4{
+	background-position: -5px -23px;
+	width: 78px;
+}
+.bkg-prop span span.span-5{
+	background-position: -5px -23px;
+	width: 100px;
+}
