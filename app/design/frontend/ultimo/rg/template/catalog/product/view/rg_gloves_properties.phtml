@@ -14,7 +14,7 @@ $gripSunny      = $_product->getAttributeText('rg_grip_sunny');
 $abrasionRes    = $_product->getAttributeText('rg_abrasion_res');
 ?>
 <?php if($gripWet): ?>
-    <div class="bkg-prop wet">
+    <div class="bkg-prop wet tooltip-right" data-tooltip="I’m the tooltip text.">
         <label><?php echo $this->__('Grip wet') ?></label>
         <span><span class="span-<?php echo $gripWet;?>"></span></span>
     </div>
