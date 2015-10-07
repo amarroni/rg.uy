@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RG_Cms>
+            <version>0.1.1</version>
+        </RG_Cms>
+    </modules>
+    <global>
+        <models>
+            <rg_cms>
+                <class>RG_Cms_Model</class>
+                <resourceModel>rg_cms_resource</resourceModel>
+            </rg_cms>
+            <rg_cms_resource>
+                <class>RG_Cms_Model_Resource</class>
+            </rg_cms_resource>
+        </models>
+        <resources>
+            <rg_cms_setup>
+                <setup>
+                    <module>RG_Cms</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </rg_cms_setup>
+        </resources>
+    </global>
+</config>
