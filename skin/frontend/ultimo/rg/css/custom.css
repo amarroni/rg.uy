@@ -439,6 +439,148 @@ a:hover .caption.light1 p{
 	float: left;
 	margin: 0 7px 0 0;
 }
+/* Category Page */
+.breadcrumbs {
+
+}
+.breadcrumbs li a {
+	color: #535353;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+}
+.breadcrumbs li .last-crumb {
+	color: #428dc7;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+}
+.breadcrumbs .sep::before {
+	color: #535353;
+	content: '\203A';
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+}
+.page-title.category-title {
+	display: none;
+}
+.category-image {
+	margin-top: -24px;
+}
+.catalog-category-view .main.container {
+	padding-top: 28px;
+}
+.sidebar .block .block-title {
+	border-bottom: 1px solid #acb1b4;
+	padding-bottom: 15px;
+}
+.sidebar .block .block-title strong {
+	color: #27282a;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.block-layered-nav .block-content > dl > dt {
+	color: #428dc7;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+}
+.block-layered-nav .block-content > dl > dd {
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 0;
+}
+.block-layered-nav .block-content a {
+	color: #000000;
+}
+.block-layered-nav dl dd ol > li > a .count {
+	color: #000000;
+}
+.block-layered-nav dl dd ol > li > a::before {
+	border-right: none;
+	border-left: 4px solid #000000;
+	border-top: 4px solid rgba(0, 0, 0, 0);
+	border-bottom: 4px solid rgba(0, 0, 0, 0);
+}
+#narrow-by-list dd .swatch-label {
+	border: 1px solid #cdcdcd;
+	color: #000000;
+	font-size: 16px;
+}
+.block-layered-nav .currently .block-subtitle {
+	color: #428dc7;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+}
+.block-layered-nav .actions,
+.block-layered-nav .currently {
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+.category-products .toolbar {
+	border-top: 0 none;
+	border-bottom: 1px dashed #e5e5e5;
+}
+.category-products .toolbar .sorter {
+	color: #000000;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+.category-products .toolbar .sorter .amount {
+	color: #000000;
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+.category-products .toolbar .sorter .amount strong {
+	font-weight: 400;
+}
+.category-products .toolbar .sorter .limiter select,
+.category-products .toolbar .sorter .sort-by select {
+	font-family: "Titillium web","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: 30px;
+	padding: 0;
+}
+.sorter .view-mode a {
+	background-color: #a2adb4;
+}
+.category-products-grid .item {
+	background-color: transparent;
+	padding-left: 0;
+	padding-right: 0;
+}
+.category-products-grid .item .product-name {
+	color: #666363;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 14px 0 6px;
+}
+.category-products-grid .item .product-name a {
+	color: #666363;
+}
+.category-products-grid .item .short-description {
+	color: #666363;
+	font-family: "Titillium web","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+}
+.category-products-grid .item .actions .button {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	color: #428dc7;
+	font-family: "Titillium web","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 700;
+}
 /* Responsive */
 @media only screen and (max-width: 1037px) {
 	.header-regular .right-column .user-menu .search-wrapper {
