@@ -675,7 +675,18 @@ a:hover .caption.light1 p{
 		line-height: 30px;
 	}
 }
-/* Items */
+@media only screen and (max-width: 480px){
+	.container {
+		max-width: 90%!important;
+	}
+	#contactForm .form-list .field{
+		width: 100%;
+	}
+	#contactForm .form-list input.input-text{
+		width: 99.5%;
+	}
+}
+	/* Items */
 .itemslider .item {padding:0px; margin: 0 5px; background-color: #fff}
 .cms-home .products-grid .item {padding-bottom: 0px}
 .itemslider .more-info{background-color: #008eca; height: 46px; display: block}
