@@ -56,10 +56,7 @@ if (!file_exists($mageFilename)) {
     exit;
 }
 
-$filter = array("167.58.207.193");
-$clientIp = $_SERVER['REMOTE_ADDR'];
-
-if (file_exists($maintenanceFile) && !in_array($clientIp, $filter)) {
+if (file_exists($maintenanceFile)) {
     include_once dirname(__FILE__) . '/errors/503.php';
     exit;
 }
@@ -69,11 +66,11 @@ require_once $mageFilename;
 
 #Varien_Profiler::enable();
 
-//if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
+if (isset($_SERVER['MAGE_IS_DEVELOPER_MODE'])) {
     Mage::setIsDeveloperMode(true);
-//}
+}
 
-ini_set('display_errors', 1);
+#ini_set('display_errors', 1);
 
 umask(0);
 

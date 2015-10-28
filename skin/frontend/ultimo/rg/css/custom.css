@@ -441,7 +441,7 @@ a:hover .caption.light1 p{
 }
 /* Category Page */
 .breadcrumbs {
-
+padding-top: 5px;
 }
 .breadcrumbs li a {
 	color: #535353;
@@ -644,9 +644,9 @@ a:hover .caption.light1 p{
 		background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 		padding: 0 0.5833em;
 	}
-	/*#store-switcher {
+	#store-switcher {
 		display: none;
-	}*/
+	}
 	.block_footer_social {
 		display: none !important;
 	}
@@ -659,34 +659,8 @@ a:hover .caption.light1 p{
 	.home-centered div.grid12-3 .info {
 		padding: 30px 4%;
 	}
-	#contactForm{
-		width: 100%;
-	}
-	.contactus{
-		border-left:none;
-		border-top: 1px solid #d5d5d5;
-		margin-left: 2%;
-		margin-top: 30px;
-		padding-top: 20px;
-		text-align: center;
-		width: 100%;
-	}
-	.contactus strong {
-		line-height: 30px;
-	}
 }
-@media only screen and (max-width: 480px){
-	.container {
-		max-width: 90%!important;
-	}
-	#contactForm .form-list .field{
-		width: 100%;
-	}
-	#contactForm .form-list input.input-text{
-		width: 99.5%;
-	}
-}
-	/* Items */
+/* Items */
 .itemslider .item {padding:0px; margin: 0 5px; background-color: #fff}
 .cms-home .products-grid .item {padding-bottom: 0px}
 .itemslider .more-info{background-color: #008eca; height: 46px; display: block}
@@ -942,4 +916,46 @@ a:hover .caption.light1 p{
 .tooltip-right:after {
 	margin-left: -6px;
 	margin-bottom: -15px;
+}
+/*** ARQUEROS ***/
+.arqueros{
+	font-family: "Titillium web", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.arqueros .sep-line{
+	border-top: 1px solid #acb1b4;;
+	margin-top: 20px;
+	line-height: 0px;
+}
+.arqueros .title{
+	background-color: #303030;
+	color: #fff;
+	padding: 10px 0 10px 15px;
+	margin-bottom: 18px;
+}
+.arqueros .title h3{
+	font-weight: normal;
+	margin-bottom: 0px;
+}
+.arqueros .info p {font-size: 14px}
+.arqueros .info h5,
+.arqueros .info .name{
+	color: #428dc7;
+	font-weight: normal;
+}
+.arqueros .info h5 {
+	padding-right: 5px
+}
+.arqueros p.main-content {
+	padding-bottom: 20px;
+}
+@media only screen and (max-width: 767px) {
+	.category-image img {display: none}
+	.grid12-9{
+		padding-top: 15px;
+	}
+}
+@media only screen and (max-width: 479px) {
+	.grid12-3{
+		text-align: center;
+	}
 }
