@@ -27,7 +27,7 @@ class ET_CurrencyManager_Model_Currency extends Mage_Directory_Model_Currency
         if (method_exists($this, "formatPrecision")) {
             $options = $helper->getOptions($options);
 
-            return $this->formatPrecision(gut
+            return $this->formatPrecision(
                 $price,
                 isset($options["precision"]) ? $options["precision"] : 2,
                 $helper->clearOptions($options),
