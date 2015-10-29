@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RG_Customizations>
+            <version>0.1.0</version>
+        </RG_Customizations>
+    </modules>
+    <global>
+        <models>
+            <rg_customizations>
+                <class>RG_Customizations_Model</class>
+                <resourceModel>rg_customizations_resource</resourceModel>
+            </rg_customizations>
+            <rg_customizations_resource>
+                <class>RG_Customizations_Model_Resource</class>
+            </rg_customizations_resource>
+        </models>
+        <blocks>
+            <rg_customizations>
+                <class>RG_Customizations_Block</class>
+            </rg_customizations>
+        </blocks>
+        <helpers>
+            <rg_customizations>
+                <class>RG_Customizations_Helper</class>
+            </rg_customizations>
+        </helpers>
+        <resources>
+            <rg_customizations_setup>
+                <setup>
+                    <module>RG_Customizations</module>
+                </setup>
+            </rg_customizations_setup>
+        </resources>
+    </global>
+</config>
