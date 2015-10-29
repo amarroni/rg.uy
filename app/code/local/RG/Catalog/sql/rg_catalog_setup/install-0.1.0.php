@@ -16,7 +16,7 @@ $installer->startSetup();
 /* @var $model Mage_Eav_Model_Entity_Attribute_Set */
 $model  = Mage::getModel('eav/entity_attribute_set')
     ->setEntityTypeId($productEntityTypeId);
-$model->setAttributeSetName('Goalkeeper Gloves');
+$model->setAttributeSetName('RG Goalkeeper Gloves');
 /*no need to validate*/
 $model->save();
 $model->initFromSkeleton($defaultAttributeSetId);

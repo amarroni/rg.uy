@@ -12,7 +12,7 @@ $defaultAttributeSetId  = $installer->getDefaultAttributeSetId(Mage_Catalog_Mode
 $productEntityTypeId    = $installer->getEntityTypeId(Mage_Catalog_Model_Product::ENTITY);
 
 /*Create new attributes for RG starts values*/
-$options = array(1,2,3,4,5);
+$options = array(1,2,3,4,5,6);
 $installer->startSetup();
 $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY,'rg_grip_wet',array(
     'type'                       => 'int',

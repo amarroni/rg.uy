@@ -27,7 +27,7 @@ $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY,'rg_gloves_family',a
     'option'                     => array('values'=>$values)
 ));
 
-$values = array('CONTACT','CONTACT AQUA','GIGA GRIP','ROUGH PROFILE','SUPERSOFT','WET&DRY');
+$values = array('CONTACT','CONTACT AQUA GRIP','GIGA GRIP','ROUGH PROFILE','SUPERSOFT','WET&DRY');
 
 $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY,'rg_gloves_palms',array(
     'type'                       => 'int',
@@ -45,7 +45,7 @@ $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY,'rg_gloves_palms',ar
     'option'                     => array('values'=>$values)
 ));
 
-$values = array('6','7','8','9','10','11','12');
+$values = array('5','6','7','8','9','10','11','12');
 
 $installer->addAttribute(Mage_Catalog_Model_Product::ENTITY,'rg_gloves_size',array(
     'type'                       => 'int',
