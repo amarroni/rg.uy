@@ -16,6 +16,15 @@ $rgCustomizations = array(
     'currency/options/base' => 'UYU',
     'currency/options/default' => 'UYU',
     'currency/options/allow' => 'UYU',
+    'design/package/name' => 'ultimo',
+    'design/theme/template' => 'rg',
+    'design/theme/locale' => 'rg',
+    'design/theme/skin' => 'rg',
+    'design/theme/layout' => 'rg',
+    'design/theme/default' => 'default',
+    'design/head/default_title' => 'Official Site - RG - Born to be a Keeper',
+    'design/head/default_keywords' => 'Guantes, Arqueros, Uruguay, Baba, RG, RG Uruguay',
+    'design/head/default_description' => '',
 
 
 );
