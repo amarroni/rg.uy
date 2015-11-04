@@ -961,3 +961,14 @@ padding-top: 5px;
 		text-align: center;
 	}
 }
+/*Onepage*/
+
+ol#checkoutSteps{background-color: #ffffff}
+ol#checkoutSteps select,
+ol#checkoutSteps input{background-color: #dddddd}
+.checkout-onepage-index #checkout-review-load {padding:20px}
+.checkout-onepage-index #checkout-review-table tr.grand-total{font-size: 20px}
+/*--------------*/
+/*Customer MyAccount*/
+.customer-account .col-main {background-color: #ffffff}
+.customer-account .col-main .my-account {padding:20px}
