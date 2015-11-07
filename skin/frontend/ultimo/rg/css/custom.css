@@ -968,6 +968,8 @@ ol#checkoutSteps select,
 ol#checkoutSteps input{background-color: #dddddd}
 .checkout-onepage-index #checkout-review-load {padding:20px}
 .checkout-onepage-index #checkout-review-table tr.grand-total{font-size: 20px}
+.checkout-onepage-index #checkout-shipping-method-load .sp-methods .price,
+.checkout-onepage-index .opc-block-progress #shipping_method-progress-opcheckout .price{ display: none}
 /*--------------*/
 /*Customer MyAccount*/
 .customer-account .col-main {background-color: #ffffff}
