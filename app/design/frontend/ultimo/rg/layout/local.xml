@@ -165,7 +165,7 @@
 				<action method="setPollTemplate"><template>poll/result.phtml</template><type>results</type></action>
 			</block>
 			<block type="tag/popular" name="tags_popular" template="tag/popular.phtml"/>
-			<block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>
+			<!--<block type="paypal/logo" name="paypal.partner.right.logo" template="paypal/partner/logo.phtml"/>-->
 			
 			<!-- Deprecated: custom static blocks -->
 			<block type="cms/block" name="block_left_top" before="-">

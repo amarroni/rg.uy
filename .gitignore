@@ -35,5 +35,5 @@ LICENSE.txt
 LICENSE_AFL.txt
 downloader/*
 maintenance.flag
-media
+media/
 skin/frontend/ultimo/default/css/_config/

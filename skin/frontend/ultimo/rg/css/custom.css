@@ -349,6 +349,7 @@ a:hover .caption.light1 p{
 	margin-top: 0;
 	padding-top: 0;
 }
+.checkout-types button.button,
 .buttons-set button.button{
 	background-color: #428dc7;
 	border: 1px solid #6ba5d2;
@@ -777,7 +778,7 @@ padding-top: 5px;
 [data-tooltip]:after {
 	z-index: 1000;
 	padding: 8px;
-	width: 160px;
+	width: 161px;
 	background-color: #000;
 	background-color: hsla(0, 0%, 20%, 0.9);
 	color: #fff;
@@ -960,4 +961,27 @@ padding-top: 5px;
 	.grid12-3{
 		text-align: center;
 	}
+}
+/*Onepage*/
+
+ol#checkoutSteps{background-color: #ffffff}
+ol#checkoutSteps select,
+ol#checkoutSteps input{background-color: #dddddd}
+.checkout-onepage-index #checkout-review-load {padding:20px}
+.checkout-onepage-index #checkout-review-table tr.grand-total{font-size: 20px}
+.checkout-onepage-index #checkout-shipping-method-load .sp-methods .price,
+.checkout-onepage-index .opc-block-progress #shipping_method-progress-opcheckout .price{ display: none}
+/*--------------*/
+/*Customer MyAccount*/
+.customer-account .col-main {background-color: #ffffff}
+.customer-account .col-main .my-account {padding:20px}
+/* Slider arrows (for zoom thumbnails) */
+.sorter .view-mode a,
+.sorter .sort-by .category-asc,
+.sorter .sort-by .category-desc,
+.pager .pages li a,
+.slider-arrows3 .owl-controls .owl-buttons div,
+.slider-arrows3 .owl-controls.clickable .owl-buttons div.disabled:hover
+{
+	background-color:#a2adb4;
 }

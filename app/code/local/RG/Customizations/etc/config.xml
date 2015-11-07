@@ -2,7 +2,7 @@
 <config>
     <modules>
         <RG_Customizations>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </RG_Customizations>
     </modules>
     <global>
@@ -33,4 +33,13 @@
             </rg_customizations_setup>
         </resources>
     </global>
+    <stores>
+        <admin>
+            <design>
+                <theme>
+                    <default>rg</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
 </config>

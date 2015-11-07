@@ -14,19 +14,19 @@ $gripSunny      = $_product->getAttributeText('rg_grip_sunny');
 $abrasionRes    = $_product->getAttributeText('rg_abrasion_res');
 ?>
 <?php if($gripWet): ?>
-    <div class="bkg-prop wet tooltip-right" data-tooltip="I’m the tooltip text.">
+    <div class="bkg-prop wet tooltip-right" data-tooltip="<?php echo $this->__('Agarre terreno húmedo.')?>">
         <label><?php echo $this->__('Grip wet') ?></label>
         <span><span class="span-<?php echo $gripWet;?>"></span></span>
     </div>
 <?php endif;?>
 <?php if($gripSunny): ?>
-    <div class="bkg-prop sun">
+    <div class="bkg-prop sun tooltip-right" data-tooltip="<?php echo $this->__('Agarre terreno seco.')?>">
         <label><?php echo $this->__('Grip sunny') ?></label>
         <span><span class="span-<?php echo $gripSunny;?>"></span></span>
     </div>
 <?php endif;?>
 <?php if($abrasionRes): ?>
-    <div class="bkg-prop adv">
+    <div class="bkg-prop adv tooltip-right" data-tooltip="<?php echo $this->__('Resistencia a la abrasión.')?>">
         <label><?php echo $this->__('Abrasion Resistance') ?></label>
         <span><span class="span-<?php echo $abrasionRes;?>"></span></span>
     </div>
