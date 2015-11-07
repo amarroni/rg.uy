@@ -9,7 +9,7 @@ app/etc/applied.patches.list
 app/etc/local.xml.additional
 app/etc/local.xml.template
 app/etc/local.xml
-favicon.ico
+#favicon.ico
 #includes/
 index.php.sample
 #media/customer/
