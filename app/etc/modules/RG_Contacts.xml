@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RG_Contacts>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Contacts/>
+
+            </depends>
+        </RG_Contacts>
+    </modules>
+</config>
