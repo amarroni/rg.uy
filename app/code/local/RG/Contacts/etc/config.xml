@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RG_Contacts>
+            <version>0.1.0</version>
+        </RG_Contacts>
+    </modules>
+    <global>
+        <helpers>
+            <rg_contacts>
+                <class>RG_Contacts_Helper</class>
+            </rg_contacts>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <rg_contacts before="Mage_Contacts">RG_Contacts</rg_contacts>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+</config>

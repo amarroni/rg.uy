@@ -618,6 +618,8 @@ padding-top: 5px;
 }
 
 @media only screen and (max-width: 769px) {
+	#contactForm{width: 100%}
+	.category-contacto .contactus{display: none}
 	#store-switcher {
 		margin: 0;
 		width: 100%;
