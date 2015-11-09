@@ -69,12 +69,12 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
                     <td class="address-details">
-                        <h6>Bill to:</h6>
+                        <h6>Creada por:</h6>
                         <p><span class="no-link">{{var order.getBillingAddress().format('html')}}</span></p>
                     </td>
                     {{depend order.getIsNotVirtual()}}
                     <td class="address-details">
-                        <h6>Ship to:</h6>
+                        <h6>Enviar a:</h6>
                         <p><span class="no-link">{{var order.getShippingAddress().format('html')}}</span></p>
                     </td>
                     {{/depend}}
@@ -82,12 +82,12 @@
                 <tr>
                     {{depend order.getIsNotVirtual()}}
                     <td class="method-info">
-                        <h6>Información de envío:</h6>
+                        <h6>Detalles de envío:</h6>
                         <p>{{var order.shipping_description}}</p>
                     </td>
                     {{/depend}}
                     <td class="method-info">
-                        <h6>Inforamción de pago:</h6>
+                        <h6>Detalles de pago:</h6>
                         {{var payment_html}}
                     </td>
                 </tr>
