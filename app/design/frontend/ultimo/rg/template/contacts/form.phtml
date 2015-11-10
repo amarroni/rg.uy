@@ -36,13 +36,13 @@
                 <div class="field">
                     <label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name and Lastname') ?></label>
                     <div class="input-box">
-                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name and Lastname')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" placeholder="*<?php echo Mage::helper('contacts')->__('Name and Lastname') ?>" />
+                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name and Lastname')) ?>" value="" class="input-text required-entry" type="text" placeholder="*<?php echo Mage::helper('contacts')->__('Name and Lastname') ?>" />
                     </div>
                 </div>
                 <div class="field">
                     <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
                     <div class="input-box">
-                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" placeholder="*<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" />
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="" class="input-text required-entry validate-email" type="text" placeholder="*<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" />
                     </div>
                 </div>
             </li>
@@ -56,7 +56,7 @@
                 <div class="field">
                     <label for="mobile" class="required"><?php echo Mage::helper('contacts')->__('Mobile') ?></label>
                     <div class="input-box">
-                        <input name="mobile" id="mobile" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text" type="text" placeholder="<?php echo Mage::helper('contacts')->__('Mobile') ?>"/>
+                        <input name="mobile" id="mobile" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="" class="input-text" type="text" placeholder="<?php echo Mage::helper('contacts')->__('Mobile') ?>"/>
                     </div>
                 </div>
             </li>
