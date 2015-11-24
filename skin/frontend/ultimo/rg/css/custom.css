@@ -953,11 +953,13 @@ padding-top: 5px;
 .arqueros p.main-content {
 	padding-bottom: 20px;
 }
+.arqueros ol {list-style-type: decimal;	margin: 0 25px;	font-size: 14px;line-height: normal;}
 @media only screen and (max-width: 767px) {
 	.category-image img {display: none}
 	.grid12-9{
 		padding-top: 15px;
 	}
+	.arqueros .info {margin:0 10px}
 }
 @media only screen and (max-width: 479px) {
 	.grid12-3{
